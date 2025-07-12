@@ -17,31 +17,29 @@ section {
 
 @theme {
   --font-sans: 'Mona Sans', sans-serif;
-  --color-white-50: #d9ecff;
-  --color-black-50: #1c1c21;
-  --color-black-100: #0e0e10;
-  --color-black-200: #282732;
-  --color-gold-100: #ffeaa7;
-  --color-gold-200: #ccb94f;
+  --color-accent: #2cfb97;
 }
 
 @layer utilities {
+  .padding-x {
+    @apply px-5 md:px-12;
+  }
 }
 
 @layer components {
   .arrow-button {
-    @apply relative flex cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-gold-100/20 px-4 py-4 backdrop-blur-lg;
+    @apply relative flex cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-accent/20 px-4 py-4 backdrop-blur-lg;
 
     .bg-circle {
-      @apply absolute top-1/2 -right-10 h-[120%] w-[120%] origin-center -translate-y-1/2 rounded-full bg-gold-100 transition-all duration-500 group-hover:right-10 group-hover:size-10;
+      @apply absolute top-1/2 -right-10 h-[120%] w-[120%] origin-center -translate-y-1/2 rounded-full bg-accent transition-all duration-500 group-hover:right-10 group-hover:size-10;
     }
 
     .text {
-      @apply -translate-x-5 text-black uppercase transition-all duration-500 group-hover:-translate-x-5 group-hover:text-gold-100 md:text-lg xl:translate-x-0;
+      @apply -translate-x-5 text-black uppercase transition-all duration-500 group-hover:-translate-x-5 group-hover:text-accent md:text-lg xl:translate-x-0;
     }
 
     .arrow-wrapper {
-      @apply absolute top-1/2 right-10 flex size-10 -translate-y-1/2 items-center justify-center overflow-hidden rounded-full group-hover:bg-gold-100;
+      @apply absolute top-1/2 right-10 flex size-10 -translate-y-1/2 items-center justify-center overflow-hidden rounded-full group-hover:bg-accent;
 
       img {
         @apply size-5 translate-y-0 animate-bounce transition-all duration-500 group-hover:translate-y-0 xl:-translate-y-32;
@@ -65,16 +63,12 @@ section {
     }
   }
 
-  .hero-badge {
-    @apply w-fit rounded-full bg-black-200 px-4 py-2 text-sm text-nowrap md:text-base;
-  }
-
   .hero-3d-layout {
     @apply absolute top-24 right-0 h-full min-h-[50vh] w-full xl:-top-20 xl:-right-20 xl:w-[70%];
   }
 
   .simple-button {
-    @apply flex items-center justify-center rounded-full bg-gold-100 px-6 py-4 text-black backdrop-blur-lg transition-all duration-300 hover:bg-gold-100/70;
+    @apply flex items-center justify-center rounded-full bg-accent px-6 py-4 text-black transition-all duration-300 hover:bg-accent/70;
   }
 }
 

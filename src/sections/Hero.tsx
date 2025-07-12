@@ -15,7 +15,7 @@ const Hero = () => {
 
   return (
     <section id="hero" className="hero-background relative overflow-hidden">
-      <div className="relative z-10 mt-24 flex h-[80vh] items-start justify-center md:h-dvh xl:mt-12 xl:items-center">
+      <div className="relative z-10 mt-36 flex h-[80vh] items-start justify-center md:h-dvh xl:mt-24 xl:items-center">
         <HeroHeader />
 
         <figure>

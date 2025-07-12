@@ -3,7 +3,7 @@ import ArrowButton from './ArrowButton';
 
 const HeroHeader = () => {
   return (
-    <header className="flex w-screen flex-col justify-center px-5 md:w-full md:px-20">
+    <header className="padding-x flex w-screen flex-col justify-center md:w-full">
       <div className="flex flex-col gap-7">
         <div className="hero-text">
           <h1>Hi, I'm Nikolozi,</h1>

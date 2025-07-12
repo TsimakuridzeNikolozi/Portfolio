@@ -1,16 +1,12 @@
 import { NAVIGATION_LINKS } from '../constants';
+import Logo from './Logo';
 import NavigationLink from './NavigationLink';
 
 const Navbar = () => {
   return (
-    <header className="flex items-center justify-between px-20 pt-12 pb-6">
+    <header className="padding-x absolute top-0 left-0 z-20 flex w-full items-center justify-between pt-12 pb-6">
       <div className="flex items-center gap-x-20 xl:gap-x-40">
-        <a
-          href="#hero"
-          className="logo rounded-md border border-gold-100 bg-black-100 p-2 font-serif text-3xl font-light drop-shadow-lg drop-shadow-gold-100/50 transition-all duration-300 hover:drop-shadow-gold-100"
-        >
-          NT
-        </a>
+        <Logo />
 
         <nav className="hidden lg:block">
           <ul className="flex items-center">
