@@ -3,7 +3,7 @@ import NavigationLink from './NavigationLink';
 
 const Navbar = () => {
   return (
-    <header className="flex items-center justify-between px-10 py-4">
+    <header className="flex items-center justify-between px-20 pt-12 pb-6">
       <div className="flex items-center gap-x-20 xl:gap-x-40">
         <a
           href="#hero"
@@ -13,7 +13,7 @@ const Navbar = () => {
         </a>
 
         <nav className="hidden lg:block">
-          <ul className="flex items-center gap-x-4 xl:gap-x-8">
+          <ul className="flex items-center">
             {NAVIGATION_LINKS.map((link) => (
               <li key={link.href}>
                 <NavigationLink link={link} />
@@ -23,7 +23,9 @@ const Navbar = () => {
         </nav>
       </div>
 
-      <a href="#contact">Contact Me</a>
+      <a href="#contact" className="simple-button">
+        Contact Me
+      </a>
     </header>
   );
 };

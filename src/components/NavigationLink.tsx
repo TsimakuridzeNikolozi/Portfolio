@@ -38,7 +38,7 @@ const NavigationLink = ({ link }: NavigationLinkProps) => {
   return (
     <a
       ref={linkRef}
-      className="flex items-center gap-x-2 rounded-full px-3 py-2 text-white-50 transition-colors duration-300 hover:bg-gold-100/20 hover:text-gold-100"
+      className="flex items-center gap-x-2 rounded-full px-4 py-2 text-white-50 transition-colors duration-300 hover:bg-gold-100/20 hover:text-gold-100"
       href={link.href}
     >
       <img ref={iconRef} src={link.icon} alt={link.label} className="size-5" />
