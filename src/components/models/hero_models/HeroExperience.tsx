@@ -30,7 +30,7 @@ const HeroExperience = () => {
 
       <Suspense fallback={null}>
         <HeroLights />
-        <group scale={isMobile ? 0.7 : 1} position={[0, -3.5, 0]} rotation={[0, -Math.PI / 4, 0]}>
+        <group scale={isMobile ? 0.7 : 1} position={[0, -3.5, 0]} rotation={[0, -1.2, 0]}>
           <Working />
         </group>
       </Suspense>

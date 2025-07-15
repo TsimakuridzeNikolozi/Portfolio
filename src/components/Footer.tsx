@@ -13,6 +13,7 @@ const FooterLink = () => {
     tl.to(linkRef.current, {
       scale: 1.1,
       borderColor: 'var(--color-accent)',
+      backgroundColor: 'rgba(44, 251, 151, 0.2)',
       duration: 0.3,
       ease: 'power2.out',
     }).to(
@@ -33,7 +34,7 @@ const FooterLink = () => {
     <a
       ref={linkRef}
       href="#hero"
-      className="flex items-center gap-x-2 rounded-full border border-white p-1.5 transition-all duration-300"
+      className="flex items-center gap-x-2 rounded-full border border-accent/20 p-1.5 transition-all duration-300"
     >
       <img ref={iconRef} src="/images/curved-arrow.svg" alt="logo" className="size-7" />
     </a>

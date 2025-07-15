@@ -1,23 +1,16 @@
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-
 import HeroExperience from '../components/models/hero_models/HeroExperience';
 import HeroHeader from '../components/HeroHeader';
+import { Spotlight } from '../components/Spotlight';
 
 const Hero = () => {
-  useGSAP(() => {
-    gsap.fromTo(
-      '.hero-text h1',
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, stagger: 0.2, duration: 1, ease: 'power2.inOut' },
-    );
-  });
-
   return (
-    <section id="hero" className="hero-background relative overflow-hidden">
-      <div className="relative z-10 mt-36 flex h-[80vh] items-start justify-center md:h-dvh xl:mt-24 xl:items-center">
-        <HeroHeader />
+    <section id="hero" className="relative h-dvh overflow-hidden">
+      <Spotlight />
+      <div className="hero-grid" />
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black" />
 
+      <div className="relative z-10 mt-36 flex h-[80vh] items-start justify-center md:h-dvh xl:mt-24">
+        <HeroHeader />
         <figure>
           <div className="hero-3d-layout">
             <HeroExperience />
