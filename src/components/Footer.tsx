@@ -1,4 +1,4 @@
-import Socials from './socials';
+import Socials from './Socials';
 import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';

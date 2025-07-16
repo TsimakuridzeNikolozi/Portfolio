@@ -1,7 +1,8 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { NavigationLinkType } from '../types';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { motion } from 'motion/react';
 
 gsap.registerPlugin(useGSAP);
 
@@ -12,6 +13,7 @@ interface NavigationLinkProps {
 const NavigationLink = ({ link }: NavigationLinkProps) => {
   const linkRef = useRef<HTMLAnchorElement>(null);
   const iconRef = useRef<HTMLImageElement>(null);
+  const [hovering, setHovering] = useState(false);
 
   useGSAP(() => {
     gsap.set(iconRef.current, { opacity: 0, scale: 0 });
@@ -38,9 +40,18 @@ const NavigationLink = ({ link }: NavigationLinkProps) => {
   return (
     <a
       ref={linkRef}
-      className="flex items-center gap-x-2 rounded-full px-4 py-2 text-white transition-colors duration-300 hover:bg-accent/20 hover:text-accent"
+      className="relative flex items-center gap-x-2 px-4 py-2 text-white transition-colors duration-300 hover:text-accent"
       href={link.href}
+      onMouseEnter={() => setHovering(true)}
+      onMouseLeave={() => setHovering(false)}
     >
+      {hovering && (
+        <motion.div
+          layoutId="clickedbutton"
+          transition={{ type: 'spring', bounce: 0.3, duration: 0.6 }}
+          className="absolute inset-0 rounded-full bg-accent/20"
+        />
+      )}
       <img ref={iconRef} src={link.icon} alt={link.label} className="w-5" />
       {link.label}
     </a>

@@ -6,16 +6,12 @@ const Hero = () => {
   return (
     <section id="hero" className="relative h-dvh overflow-hidden">
       <Spotlight />
-      <div className="hero-grid" />
+      <div className="hero-dots" />
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black" />
 
       <div className="relative z-10 mt-36 flex h-[80vh] items-start justify-center md:h-dvh xl:mt-24">
         <HeroHeader />
-        <figure>
-          <div className="hero-3d-layout">
-            <HeroExperience />
-          </div>
-        </figure>
+        <HeroExperience />
       </div>
     </section>
   );

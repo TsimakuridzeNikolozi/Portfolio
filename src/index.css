@@ -47,12 +47,10 @@ section {
     }
   }
 
-  .hero-grid {
+  .hero-dots {
     @apply absolute inset-0;
-    background-size: 40px 40px;
-    background-image:
-      linear-gradient(to right, #2cfb9733 1px, transparent 1px),
-      linear-gradient(to bottom, #2cfb9733 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-image: radial-gradient(rgba(44, 251, 151, 0.4) 1px, transparent 1px);
   }
 
   .hero-text {
