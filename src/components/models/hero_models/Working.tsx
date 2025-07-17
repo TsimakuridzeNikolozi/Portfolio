@@ -13,7 +13,7 @@ import { useGLTF, useAnimations } from '@react-three/drei';
 import { SkeletonUtils } from 'three-stdlib';
 import * as THREE from 'three';
 
-export const Working = () => {
+export const Working = ({ setMeshGroup }: { setMeshGroup: (group: THREE.Group) => void }) => {
   const group = useRef<THREE.Group>(null);
   const { scene, animations } = useGLTF('/models/working.glb');
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene]);
@@ -23,6 +23,12 @@ export const Working = () => {
   useEffect(() => {
     Object.values(actions).forEach((action) => action?.play());
   }, [actions]);
+
+  useEffect(() => {
+    if (group.current) {
+      setMeshGroup(group.current);
+    }
+  }, [setMeshGroup]);
 
   return (
     <group ref={group} dispose={null}>

@@ -12,6 +12,7 @@ const App = () => {
     <>
       <Navbar />
       <Hero />
+      <section id="hero-to-work-experience" className="h-dvh" />
       <WorkExperience />
       <Education />
       <Projects />

@@ -1,4 +1,3 @@
-import HeroExperience from '../components/models/hero_models/HeroExperience';
 import HeroHeader from '../components/HeroHeader';
 import { Spotlight } from '../components/Spotlight';
 
@@ -11,7 +10,6 @@ const Hero = () => {
 
       <div className="relative z-10 mt-36 flex h-[80vh] items-start justify-center md:h-dvh xl:mt-24">
         <HeroHeader />
-        <HeroExperience />
       </div>
     </section>
   );

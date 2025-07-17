@@ -17,7 +17,7 @@ const HeroLights = () => (
     <pointLight position={[0.13, 4.5, 3.552]} intensity={30} color="#74b9ff" distance={2} decay={2} />
 
     {/* Soft golden ambient lighting */}
-    <ambientLight intensity={0.3} color="#fff3b1" />
+    <ambientLight intensity={0.5} color="#fff3b1" />
 
     {/* Golden-tinted overhead lighting */}
     <directionalLight
