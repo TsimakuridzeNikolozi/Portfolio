@@ -17,6 +17,12 @@ section {
   width: 100dvw;
 }
 
+@property --start {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
 @theme {
   --font-sans: 'Mona Sans', sans-serif;
   --color-accent: #2cfb97;
@@ -30,11 +36,11 @@ section {
 
 @layer components {
   .page {
-    @apply relative z-[2];
+    @apply relative z-[3];
   }
 
   .canvas-container {
-    @apply fixed top-0 left-0 z-[1] h-full w-full;
+    @apply fixed top-0 left-0 z-[2] h-full w-full;
   }
 
   .arrow-button {
@@ -57,14 +63,49 @@ section {
     }
   }
 
-  .hero-dots {
-    @apply absolute inset-0;
-    background-size: 20px 20px;
-    background-image: radial-gradient(rgba(44, 251, 151, 0.4) 1px, transparent 1px);
+  .dot-grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .dot-grid__wrap {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .dot-grid__canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .text-type {
+    display: inline-block;
+    white-space: pre-wrap;
+  }
+
+  .text-type__cursor {
+    margin-left: 0.25rem;
+    display: inline-block;
+    opacity: 1;
+  }
+
+  .text-type__cursor--hidden {
+    display: none;
   }
 
   .hero-text {
-    @apply pointer-events-none relative z-10 flex flex-col justify-center text-center text-[30px] font-semibold md:text-[48px] xl:text-7xl;
+    @apply pointer-events-none relative z-10 flex flex-col justify-center text-center text-[30px] font-semibold md:text-[48px] xl:text-8xl;
     img {
       @apply size-8 object-contain md:size-10;
     }
@@ -80,4 +121,27 @@ section {
   .simple-button {
     @apply flex items-center justify-center rounded-full bg-accent px-6 py-4 text-black transition-all duration-300 hover:bg-accent/70;
   }
+}
+
+.glass-card {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border-radius: inherit;
+  border: 2px solid transparent;
+  background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)) border-box;
+  mask:
+    linear-gradient(black, black) border-box,
+    linear-gradient(black, black) padding-box;
+  mask-composite: subtract;
 }

@@ -40,7 +40,7 @@ const NavigationLink = ({ link }: NavigationLinkProps) => {
   return (
     <a
       ref={linkRef}
-      className="relative flex items-center gap-x-2 px-4 py-2 text-white transition-colors duration-300 hover:text-accent"
+      className="relative flex items-center gap-x-2 px-4 py-2 text-white transition-all duration-300 hover:text-accent"
       href={link.href}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
@@ -49,11 +49,11 @@ const NavigationLink = ({ link }: NavigationLinkProps) => {
         <motion.div
           layoutId="clickedbutton"
           transition={{ type: 'spring', bounce: 0.3, duration: 0.6 }}
-          className="absolute inset-0 rounded-full bg-accent/20"
+          className="absolute inset-0 rounded-full bg-accent/20 backdrop-blur-lg"
         />
       )}
       <img ref={iconRef} src={link.icon} alt={link.label} className="w-5" />
-      {link.label}
+      <span className="z-10">{link.label}</span>
     </a>
   );
 };

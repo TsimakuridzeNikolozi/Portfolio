@@ -51,7 +51,7 @@ export const Working = ({ setMeshGroup }: { setMeshGroup: (group: THREE.Group) =
                   <mesh
                     name="Object_7"
                     geometry={(nodes.Object_7 as THREE.Mesh).geometry}
-                    material={materials['Material.010']}
+                    material={materials['Material.012']}
                   />
                   <mesh
                     name="Object_8"
@@ -76,7 +76,7 @@ export const Working = ({ setMeshGroup }: { setMeshGroup: (group: THREE.Group) =
                 <mesh
                   name="Object_13"
                   geometry={(nodes.Object_13 as THREE.Mesh).geometry}
-                  material={materials['Material.014']}
+                  material={materials['Material.012']}
                 />
                 <mesh
                   name="Object_14"
@@ -221,7 +221,7 @@ export const Working = ({ setMeshGroup }: { setMeshGroup: (group: THREE.Group) =
                 <mesh
                   name="Object_133"
                   geometry={(nodes.Object_133 as THREE.Mesh).geometry}
-                  material={materials['Material.010']}
+                  material={materials['Material.012']}
                 />
                 <mesh
                   name="Object_134"

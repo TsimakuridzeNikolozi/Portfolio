@@ -34,6 +34,20 @@ const HeroLights = () => (
       shadow-camera-bottom={-10}
     />
 
+    <directionalLight
+      position={[-8, 6, 2]}
+      intensity={2}
+      color="white"
+      castShadow
+      shadow-mapSize-width={2048}
+      shadow-mapSize-height={2048}
+      shadow-camera-far={50}
+      shadow-camera-left={-10}
+      shadow-camera-right={10}
+      shadow-camera-top={10}
+      shadow-camera-bottom={-10}
+    />
+
     {/* Golden fill light for warm atmosphere */}
     <spotLight
       position={[-2, 6, 6]}

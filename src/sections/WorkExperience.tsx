@@ -1,12 +1,13 @@
+import WorkExperienceEntry from '../components/work-experience/WorkExperienceEntry';
+import { WORK_EXPERIENCE } from '../constants/work.constants';
+
 const WorkExperience = () => {
   return (
-    <section id="work-experience" className="padding-x py-20">
-      <h1 className="text-right text-6xl font-bold">Work Experience</h1>
-      <div className="flex flex-col gap-4">
-        <div className="flex flex-col gap-2">
-          <h2 className="text-2xl font-bold">Software Engineer</h2>
-          <p className="text-sm text-gray-500">Google</p>
-        </div>
+    <section id="work-experience" className="padding-x relative space-y-20 py-20">
+      <div className="space-y-8">
+        {WORK_EXPERIENCE.map((workExperience) => (
+          <WorkExperienceEntry key={workExperience.title} workExperience={workExperience} />
+        ))}
       </div>
     </section>
   );

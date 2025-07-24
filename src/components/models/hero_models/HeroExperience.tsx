@@ -20,10 +20,9 @@ const HeroExperience = () => {
       scrollTrigger: {
         trigger: '#hero',
         start: 'top top',
-        end: 'bottom bottom',
-        endTrigger: '#hero-to-work-experience',
+        end: 'center center',
+        endTrigger: '#work-experience',
         scrub: true,
-        markers: true,
       },
     });
 
@@ -36,15 +35,15 @@ const HeroExperience = () => {
     });
 
     tl.to(meshGroup.rotation, {
-      y: 1.125,
-      z: 0.1,
+      y: -1.5,
+      z: -0.1,
       ease: 'power4.out',
     });
     tl.to(
       meshGroup.position,
       {
         y: 5,
-        x: -12,
+        x: 12,
         ease: 'power4.out',
       },
       '<',

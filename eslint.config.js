@@ -27,6 +27,7 @@ export default tseslint.config(
       'no-trailing-spaces': 'error',
       'eol-last': 'error',
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1, maxBOF: 0 }],
+      'no-console': 'warn',
       indent: 'off',
       quotes: 'off',
       semi: 'off',
