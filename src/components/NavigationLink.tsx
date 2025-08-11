@@ -4,11 +4,11 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { motion } from 'motion/react';
 
-gsap.registerPlugin(useGSAP);
-
 interface NavigationLinkProps {
   link: NavigationLinkType;
 }
+
+const SCROLL_OFFSET = 200;
 
 const NavigationLink = ({ link }: NavigationLinkProps) => {
   const linkRef = useRef<HTMLAnchorElement>(null);
@@ -35,13 +35,32 @@ const NavigationLink = ({ link }: NavigationLinkProps) => {
         ease: 'power2.out',
       });
     });
+
+    return () => {
+      linkRef.current?.removeEventListener('mouseenter', () => {});
+      linkRef.current?.removeEventListener('mouseleave', () => {});
+    };
   });
+
+  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    const targetId = link.href.replace('#', '');
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      const top = targetElement.getBoundingClientRect().top + window.pageYOffset - SCROLL_OFFSET;
+      window.scrollTo({
+        top: top,
+        behavior: 'smooth',
+      });
+    }
+  };
 
   return (
     <a
       ref={linkRef}
       className="relative flex items-center gap-x-2 px-4 py-2 text-white transition-all duration-300 hover:text-accent"
       href={link.href}
+      onClick={handleClick}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >

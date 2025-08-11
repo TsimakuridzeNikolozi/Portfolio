@@ -1,4 +1,4 @@
-export type WorkExperience = {
+export type WorkExperienceType = {
   overview: string;
   wordmarkPath: string;
   logoPath: string;

@@ -1,6 +1,8 @@
-import { HTMLAttributes } from 'react';
-import GradientText from './GradientText';
+import { HTMLAttributes, useRef } from 'react';
 import { cn } from '../../utils/cn';
+import TextType from './TextType';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 
 interface SectionHeaderProps extends HTMLAttributes<HTMLDivElement> {
   primary: string;
@@ -8,11 +10,43 @@ interface SectionHeaderProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const SectionHeader = ({ primary, secondary, className, ...props }: SectionHeaderProps) => {
+  const ref = useRef<HTMLDivElement>(null);
+  useGSAP(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    gsap.fromTo(
+      element,
+      {
+        scale: 0.6,
+        opacity: 0,
+      },
+      {
+        scale: 1,
+        opacity: 1,
+        ease: 'power2.inOut',
+        duration: 1,
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 90%',
+          toggleActions: 'play none none none',
+          once: true,
+        },
+      },
+    );
+  });
+
   return (
-    <div {...props} className={cn('flex w-full flex-col items-center justify-center gap-2', className)}>
-      <p className="rounded-full bg-white/15 px-3 py-1.5 text-lg backdrop-blur-lg">
-        <GradientText>{secondary}</GradientText>
-      </p>
+    <div {...props} ref={ref} className={cn('flex w-full flex-col items-center justify-center gap-2', className)}>
+      <TextType
+        className="rounded-full bg-white/15 px-3 py-1.5 text-lg backdrop-blur-lg"
+        loop={false}
+        text={secondary}
+        gradientText
+        startOnVisible
+        showCursor={false}
+        typingSpeed={100}
+      />
       <h2 className="text-6xl font-bold">{primary}</h2>
     </div>
   );

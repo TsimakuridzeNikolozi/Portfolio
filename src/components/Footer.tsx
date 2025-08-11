@@ -28,6 +28,12 @@ const FooterLink = () => {
 
     linkRef.current?.addEventListener('mouseenter', () => tl.play());
     linkRef.current?.addEventListener('mouseleave', () => tl.reverse());
+
+    return () => {
+      tl.kill();
+      linkRef.current?.removeEventListener('mouseenter', () => tl.play());
+      linkRef.current?.removeEventListener('mouseleave', () => tl.reverse());
+    };
   });
 
   return (

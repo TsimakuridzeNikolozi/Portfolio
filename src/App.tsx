@@ -10,48 +10,54 @@ import SectionHeader from './components/reusable/SectionHeader';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import TransitionSection from './components/reusable/TransitionSection';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
   useGSAP(() => {
-    gsap.set('#work-experience-header', {
-      x: 50,
-      opacity: 0,
+    const workExperienceTrigger = ScrollTrigger.create({
+      trigger: '#hero-to-work-experience',
+      start: 'top 5%',
+      end: 'top bottom',
+      endTrigger: '#work-experience-to-education',
+      scrub: true,
+      pin: '#work-experience-header',
+      pinSpacing: false,
     });
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: '#hero-to-work-experience',
-        start: 'top top',
-        end: 'bottom bottom',
-        endTrigger: '#education',
-        scrub: true,
-        pin: '#work-experience-header',
-      },
+    const educationTrigger = ScrollTrigger.create({
+      trigger: '#work-experience-to-education',
+      start: 'top top',
+      end: 'top 25%',
+      endTrigger: '#education',
+      scrub: true,
+      pin: '#education-header',
+      pinSpacing: false,
     });
 
-    tl.to('#work-experience-header', {
-      x: 0,
-      opacity: 1,
-      stagger: 0.2,
-      ease: 'power2.out',
-    });
-  }, []);
+    return () => {
+      workExperienceTrigger.kill();
+      educationTrigger.kill();
+    };
+  });
 
   return (
     <div className="page">
       <Navbar />
       <Hero />
-      <section id="hero-to-work-experience" className="relative h-[50dvh] pt-20">
-        <SectionHeader
-          className="absolute"
-          id="work-experience-header"
-          primary="Work Experience"
-          secondary="My Professional Journey"
-        />
-      </section>
+      <TransitionSection id="hero-to-work-experience">
+        <SectionHeader id="work-experience-header" primary="Work Experience" secondary="My Professional Journey" />
+      </TransitionSection>
       <WorkExperience />
+      <TransitionSection id="work-experience-to-education">
+        <SectionHeader
+          id="education-header"
+          primary="Education/Certifications"
+          secondary="Academic Achievements"
+          className="mx-6 w-fit"
+        />
+      </TransitionSection>
       <Education />
       <Projects />
       <Skills />

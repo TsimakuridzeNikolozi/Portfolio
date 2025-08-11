@@ -1,6 +1,6 @@
-import { WorkExperience } from '../types/work.types';
+import { type WorkExperienceType } from '../types/work.types';
 
-export const WORK_EXPERIENCE: WorkExperience[] = [
+export const WORK_EXPERIENCE: WorkExperienceType[] = [
   {
     overview:
       'Gained fast-paced startup experience, rapidly advancing from Junior Developer to fulfilling Senior Developer role by consistently taking ownership, delivering under pressure, working overtime, and driving product growth.',

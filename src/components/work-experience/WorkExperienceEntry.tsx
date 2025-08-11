@@ -1,5 +1,5 @@
 import { useGSAP } from '@gsap/react';
-import { WorkExperience } from '../../types/work.types';
+import { WorkExperienceType } from '../../types/work.types';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import WorkExperienceEntryHeader from './WorkExperienceEntryHeader';
@@ -10,7 +10,7 @@ import GlassCard from '../reusable/GlassCard';
 gsap.registerPlugin(ScrollTrigger);
 
 interface WorkExperienceEntryProps {
-  workExperience: WorkExperience;
+  workExperience: WorkExperienceType;
 }
 
 const WorkExperienceEntry = ({ workExperience }: WorkExperienceEntryProps) => {
@@ -73,13 +73,10 @@ const WorkExperienceEntry = ({ workExperience }: WorkExperienceEntryProps) => {
     gsap.fromTo(
       '.work-experience-entry',
       {
-        scale: 0,
-        rotateY: 0,
+        transform: 'rotateY(10deg)',
+        transformPerspective: 1000,
       },
       {
-        scale: 1,
-        rotateY: '15deg',
-        transformPerspective: 1000,
         duration: 0.8,
         ease: 'power2.inOut',
         scrollTrigger: {

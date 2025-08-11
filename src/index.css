@@ -3,6 +3,7 @@
 
 html,
 body {
+  position: relative;
   width: 100dvw;
   overflow-x: hidden;
   background-color: black;
@@ -11,6 +12,28 @@ body {
   font-family: 'Mona Sans', sans-serif;
   margin: 0;
   padding: 0;
+}
+
+.background-image-1,
+.background-image-2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100dvw;
+  height: 100dvh;
+  background-image: url('images/background.svg');
+  background-size: cover;
+  background-position: left;
+}
+
+.background-image-1 {
+  transform: rotate(180deg);
+  opacity: 0.15;
+}
+
+.background-image-2 {
+  opacity: 0.075;
 }
 
 section {
@@ -95,7 +118,7 @@ section {
   }
 
   .text-type__cursor {
-    margin-left: 0.25rem;
+    margin-left: 0.075rem;
     display: inline-block;
     opacity: 1;
   }
@@ -119,7 +142,27 @@ section {
   }
 
   .simple-button {
-    @apply flex items-center justify-center rounded-full bg-accent px-6 py-4 text-black transition-all duration-300 hover:bg-accent/70;
+    @apply flex items-center justify-center rounded-full bg-accent px-6 py-4 text-black backdrop-blur-md transition-all duration-300 hover:bg-accent/70;
+  }
+
+  .timeline-wrapper {
+    @apply absolute top-0 right-5 flex h-full justify-center md:right-10 xl:right-10;
+  }
+
+  .timeline {
+    @apply absolute z-10 h-full w-0.5 bg-black;
+  }
+
+  .timeline-logo-wrapper {
+    @apply absolute top-0 right-0 size-12 rounded-full border-2 bg-transparent opacity-0 md:size-[5.125rem];
+  }
+
+  .timeline-logo {
+    @apply flex size-12 flex-none items-center justify-center overflow-clip rounded-full bg-black p-1 md:size-[5.125rem];
+  }
+
+  .exp-card-wrapper {
+    @apply flex justify-end gap-10 xl:flex-row xl:gap-20;
   }
 }
 
@@ -129,7 +172,7 @@ section {
   border-radius: 1rem;
   position: relative;
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(6px);
 }
 
 .glass-card::before {
@@ -138,10 +181,22 @@ section {
   z-index: -1;
   inset: 0;
   border-radius: inherit;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)) border-box;
   mask:
     linear-gradient(black, black) border-box,
     linear-gradient(black, black) padding-box;
   mask-composite: subtract;
+}
+
+.gradient-line-general {
+  height: 100%;
+  width: 2px;
+  background: linear-gradient(180deg, #2ab1e0 33%, #253c4c, #fbc946, #ffd100);
+}
+
+.gradient-line-certifications {
+  height: 100%;
+  width: 2px;
+  background: linear-gradient(180deg, #2c2a6b, #2c2a6b, #61378e, #04dffc);
 }
