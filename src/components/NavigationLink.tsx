@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { memo, useRef, useState } from 'react';
 import { NavigationLinkType } from '../types';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -10,7 +10,7 @@ interface NavigationLinkProps {
 
 const SCROLL_OFFSET = 200;
 
-const NavigationLink = ({ link }: NavigationLinkProps) => {
+const NavigationLink = memo(({ link }: NavigationLinkProps) => {
   const linkRef = useRef<HTMLAnchorElement>(null);
   const iconRef = useRef<HTMLImageElement>(null);
   const [hovering, setHovering] = useState(false);
@@ -75,6 +75,6 @@ const NavigationLink = ({ link }: NavigationLinkProps) => {
       <span className="z-10">{link.label}</span>
     </a>
   );
-};
+});
 
 export default NavigationLink;

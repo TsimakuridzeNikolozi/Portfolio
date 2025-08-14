@@ -48,6 +48,49 @@ const HeroExperience = () => {
       },
       '<',
     );
+
+    const educationToSkillTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#education-to-skills',
+        start: 'top bottom-=15%',
+        end: 'bottom bottom-=15%',
+        scrub: true,
+      },
+    });
+
+    educationToSkillTimeline.to(meshGroup.scale, {
+      x: 0.8,
+      y: 0.8,
+      z: 0.8,
+      ease: 'power2.inOut',
+      duration: 1.5,
+    });
+
+    educationToSkillTimeline.to(
+      meshGroup.position,
+      {
+        y: 0,
+        x: 0,
+        ease: 'power2.inOut',
+        duration: 1.5,
+      },
+      '<0.1',
+    );
+
+    educationToSkillTimeline.to(
+      meshGroup.rotation,
+      {
+        y: 0,
+        z: 0,
+        ease: 'power1.inOut',
+        duration: 1.8,
+      },
+      '<0.1',
+    );
+
+    return () => {
+      tl.kill();
+    };
   }, [meshGroup]);
 
   return (

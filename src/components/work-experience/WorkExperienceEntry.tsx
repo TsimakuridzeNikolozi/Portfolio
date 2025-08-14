@@ -33,7 +33,12 @@ const WorkExperienceEntry = ({ workExperience }: WorkExperienceEntryProps) => {
       },
     );
 
-    const textElements = ['.work-experience-title', '.work-experience-period', '.work-experience-overview'];
+    const textElements = [
+      '.work-experience-title',
+      '.work-experience-period',
+      '.work-experience-overview',
+      '.work-experience-highlights',
+    ];
 
     gsap.fromTo(
       textElements,
@@ -52,41 +57,7 @@ const WorkExperienceEntry = ({ workExperience }: WorkExperienceEntryProps) => {
         },
       },
     );
-
-    gsap.fromTo(
-      '.work-experience-highlights',
-      { y: 20, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        delay: 0.6,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: ref.current,
-          start: 'top 80%',
-          toggleActions: 'play none none reverse',
-        },
-      },
-    );
-
-    gsap.fromTo(
-      '.work-experience-entry',
-      {
-        transform: 'rotateY(10deg)',
-        transformPerspective: 1000,
-      },
-      {
-        duration: 0.8,
-        ease: 'power2.inOut',
-        scrollTrigger: {
-          trigger: ref.current,
-          start: 'top 80%',
-          toggleActions: 'play none none reverse',
-        },
-      },
-    );
-  }, []);
+  });
 
   return (
     <GlassCard ref={ref} className="work-experience-entry w-1/2 max-w-4xl space-y-6 rounded-2xl p-6">

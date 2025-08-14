@@ -29,11 +29,11 @@ body {
 
 .background-image-1 {
   transform: rotate(180deg);
-  opacity: 0.15;
+  opacity: 0.2;
 }
 
 .background-image-2 {
-  opacity: 0.075;
+  opacity: 0.1;
 }
 
 section {
@@ -49,6 +49,7 @@ section {
 @theme {
   --font-sans: 'Mona Sans', sans-serif;
   --color-accent: #2cfb97;
+  --num-skills: 12;
 }
 
 @layer utilities {
@@ -84,32 +85,6 @@ section {
         @apply size-5 translate-y-0 animate-bounce transition-all duration-500 group-hover:translate-y-0 xl:-translate-y-32;
       }
     }
-  }
-
-  .dot-grid {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    position: relative;
-    z-index: 1;
-  }
-
-  .dot-grid__wrap {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    z-index: 1;
-  }
-
-  .dot-grid__canvas {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
   }
 
   .text-type {
@@ -199,4 +174,160 @@ section {
   height: 100%;
   width: 2px;
   background: linear-gradient(180deg, #2c2a6b, #2c2a6b, #61378e, #04dffc);
+}
+
+.work-experience-entry {
+  will-change: transform;
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateY(10deg);
+}
+
+#skills {
+  contain: layout style paint;
+  isolation: isolate;
+}
+
+.skills-container-wrapper {
+  position: relative;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  width: 1000px;
+  height: max-content;
+  padding-block: 4rem;
+  will-change: transform;
+}
+
+.skills-container {
+  position: relative;
+  width: 8rem;
+  height: 10rem;
+  transform-style: preserve-3d;
+  will-change: transform;
+  contain: layout style;
+}
+
+@keyframes gallery-rotation {
+  0% {
+    transform: perspective(1000px) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(1000px) rotateY(360deg);
+  }
+}
+
+.skill-card {
+  @apply flex flex-col items-center justify-between gap-3 p-4;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 12rem;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  transform: rotateY(calc(var(--i) * 360deg / var(--num-skills))) translateZ(400px);
+  will-change: filter, transform;
+  contain: layout style paint;
+}
+
+.skill-name {
+  @apply text-center text-sm font-medium text-white;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.skill-progress-container {
+  @apply flex flex-col items-center gap-2;
+  position: relative;
+}
+
+.skill-progress-ring {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.skill-progress-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.skill-progress-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-width: 4;
+}
+
+.skill-progress-fill {
+  fill: none;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 314.16; /* 2π × 50 */
+  stroke-dashoffset: calc(314.16 - (314.16 * var(--progress)) / 100);
+  transition: stroke-dashoffset 1.5s ease-in-out;
+}
+
+.skill-icon-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.skill-score {
+  @apply text-xs font-bold text-white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.skill-level {
+  @apply rounded-full px-2 py-1 text-xs font-medium;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 10px;
+  backdrop-filter: blur(10px);
+}
+
+/* Three Proficiency Level Colors */
+.skill-progress-ring.advanced .skill-progress-fill {
+  stroke: #2cfb97; /* Your accent color */
+}
+
+.skill-level.advanced {
+  background: rgba(44, 251, 151, 0.2);
+  color: #2cfb97;
+  border: 1px solid rgba(44, 251, 151, 0.3);
+}
+
+.skill-progress-ring.intermediate .skill-progress-fill {
+  stroke: #f59e0b; /* Yellow-orange */
+}
+
+.skill-level.intermediate {
+  background: rgba(245, 158, 11, 0.2);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.skill-progress-ring.beginner .skill-progress-fill {
+  stroke: #ff746c; /* Pinkish red/pastel red */
+}
+
+.skill-level.beginner {
+  background: rgba(244, 114, 182, 0.2);
+  color: #ff746c;
+  border: 1px solid rgba(244, 114, 182, 0.3);
 }

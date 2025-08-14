@@ -1,4 +1,4 @@
-import { HTMLAttributes, useRef } from 'react';
+import { HTMLAttributes, memo, useRef } from 'react';
 import { cn } from '../../utils/cn';
 import TextType from './TextType';
 import { useGSAP } from '@gsap/react';
@@ -9,7 +9,7 @@ interface SectionHeaderProps extends HTMLAttributes<HTMLDivElement> {
   secondary: string;
 }
 
-const SectionHeader = ({ primary, secondary, className, ...props }: SectionHeaderProps) => {
+const SectionHeader = memo(({ primary, secondary, className, ...props }: SectionHeaderProps) => {
   const ref = useRef<HTMLDivElement>(null);
   useGSAP(() => {
     const element = ref.current;
@@ -18,11 +18,9 @@ const SectionHeader = ({ primary, secondary, className, ...props }: SectionHeade
     gsap.fromTo(
       element,
       {
-        scale: 0.6,
         opacity: 0,
       },
       {
-        scale: 1,
         opacity: 1,
         ease: 'power2.inOut',
         duration: 1,
@@ -50,6 +48,6 @@ const SectionHeader = ({ primary, secondary, className, ...props }: SectionHeade
       <h2 className="text-6xl font-bold">{primary}</h2>
     </div>
   );
-};
+});
 
 export default SectionHeader;

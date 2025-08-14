@@ -46,6 +46,8 @@ const Education = () => {
       },
     });
 
+    ScrollTrigger.refresh();
+
     return () => {
       timelineTrigger.kill();
       logoTrigger.kill();

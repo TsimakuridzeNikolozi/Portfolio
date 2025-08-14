@@ -1,7 +1,7 @@
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import ArrowButton from './ArrowButton';
+import ArrowButton from './reusable/ArrowButton';
 import TextType from './reusable/TextType';
 
 gsap.registerPlugin(ScrollTrigger);

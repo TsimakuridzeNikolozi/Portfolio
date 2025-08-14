@@ -3,7 +3,7 @@ import Footer from './components/Footer';
 import Contact from './sections/Contact';
 import Education from './sections/Education';
 import Hero from './sections/Hero';
-import Projects from './sections/Projects';
+// import Projects from './sections/Projects';
 import Skills from './sections/Skills';
 import WorkExperience from './sections/WorkExperience';
 import SectionHeader from './components/reusable/SectionHeader';
@@ -36,9 +36,20 @@ const App = () => {
       pinSpacing: false,
     });
 
+    const skillsTrigger = ScrollTrigger.create({
+      trigger: '#education-to-skills',
+      start: 'top top',
+      end: 'top 25%',
+      endTrigger: '#skills',
+      scrub: true,
+      pin: '#skills-header',
+      pinSpacing: false,
+    });
+
     return () => {
       workExperienceTrigger.kill();
       educationTrigger.kill();
+      skillsTrigger.kill();
     };
   });
 
@@ -59,7 +70,10 @@ const App = () => {
         />
       </TransitionSection>
       <Education />
-      <Projects />
+      {/* <Projects /> */}
+      <TransitionSection id="education-to-skills">
+        <SectionHeader id="skills-header" primary="Technical Skills" secondary="Technologies I've Worked With" />
+      </TransitionSection>
       <Skills />
       <Contact />
       <Footer />

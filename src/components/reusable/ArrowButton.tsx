@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { cn } from '../utils/cn';
+import { cn } from '../../utils/cn';
 
 interface ArrowButtonProps {
   text: string;
