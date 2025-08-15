@@ -16,7 +16,7 @@ const HeroExperience = () => {
   const [meshGroup, setMeshGroup] = useState<THREE.Group | null>(null);
 
   useGSAP(() => {
-    const tl = gsap.timeline({
+    const heroToWorkExperienceTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: '#hero',
         start: 'top top',
@@ -27,19 +27,19 @@ const HeroExperience = () => {
     });
 
     if (!meshGroup) return;
-    tl.to(meshGroup.scale, {
+    heroToWorkExperienceTimeline.to(meshGroup.scale, {
       x: 1.25,
       y: 1.25,
       z: 1.25,
       ease: 'power4.out',
     });
 
-    tl.to(meshGroup.rotation, {
+    heroToWorkExperienceTimeline.to(meshGroup.rotation, {
       y: -1.5,
       z: -0.1,
       ease: 'power4.out',
     });
-    tl.to(
+    heroToWorkExperienceTimeline.to(
       meshGroup.position,
       {
         y: 5,
@@ -91,7 +91,7 @@ const HeroExperience = () => {
     const footerTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: '#contact',
-        start: 'top bottom',
+        start: 'top bottom-=20%',
         end: '+40%',
         scrub: true,
       },
@@ -117,7 +117,7 @@ const HeroExperience = () => {
     );
 
     return () => {
-      tl.kill();
+      heroToWorkExperienceTimeline.kill();
       educationToSkillTimeline.kill();
       footerTimeline.kill();
     };

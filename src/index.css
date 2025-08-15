@@ -122,7 +122,7 @@ section {
   }
 
   .timeline-wrapper {
-    @apply absolute top-0 right-5 flex h-full justify-center md:right-10 xl:right-10;
+    @apply absolute top-1/2 left-5 flex h-full -translate-y-1/2 justify-center md:left-10 xl:left-14;
   }
 
   .timeline {
@@ -130,15 +130,15 @@ section {
   }
 
   .timeline-logo-wrapper {
-    @apply absolute top-0 right-0 size-12 rounded-full border-2 bg-transparent opacity-0 md:size-[5.125rem];
+    @apply absolute top-1/2 left-0 size-12 -translate-y-1/2 rounded-full border-2 bg-transparent opacity-0 md:size-[5.125rem];
   }
 
   .timeline-logo {
-    @apply flex size-12 flex-none items-center justify-center overflow-clip rounded-full bg-black p-1 md:size-[5.125rem];
+    @apply flex size-12 flex-none items-center justify-center rounded-full bg-black p-1 md:size-[5.125rem];
   }
 
-  .exp-card-wrapper {
-    @apply flex justify-end gap-10 xl:flex-row xl:gap-20;
+  .education-card-wrapper {
+    @apply flex justify-end gap-10 xl:gap-20;
   }
 }
 
@@ -219,7 +219,6 @@ section {
   transform-style: preserve-3d;
   transform: rotateY(calc(var(--i) * 360deg / var(--num-skills))) translateZ(400px);
   will-change: filter, transform;
-  contain: layout style paint;
 }
 
 .skill-name {

@@ -24,10 +24,6 @@ const App = () => {
       endTrigger: '#work-experience-to-education',
       scrub: true,
       pin: '#work-experience-header',
-      animation: gsap.to(['.background-image-1', '.background-image-2'], {
-        rotateY: 0,
-        ease: 'power2.inOut',
-      }),
     });
 
     const educationTrigger = ScrollTrigger.create({
@@ -47,7 +43,7 @@ const App = () => {
       scrub: true,
       pin: '#contact-header',
       animation: gsap.to(['.background-image-1', '.background-image-2'], {
-        scale: 4,
+        scale: 10,
         ease: 'power2.inOut',
       }),
     });

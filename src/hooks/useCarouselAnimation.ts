@@ -7,7 +7,7 @@ interface AnimationConfig {
 }
 
 const DEFAULT_ANIMATION_CONFIG: AnimationConfig = {
-  duration: 40,
+  duration: 80,
   perspective: 1000,
 };
 
@@ -65,7 +65,6 @@ export const useCarouselAnimation = (
     gsap.set(container, {
       transformPerspective: animationConfig.perspective,
       rotationY: 0,
-      force3D: true,
     });
 
     const tl = gsap
@@ -77,7 +76,6 @@ export const useCarouselAnimation = (
       .to(container, {
         rotationY: '+=360',
         duration: animationConfig.duration,
-        force3D: true,
       });
 
     timelineRef.current = tl;

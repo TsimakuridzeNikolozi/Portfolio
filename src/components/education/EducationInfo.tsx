@@ -1,5 +1,4 @@
 import { type EducationType } from '../../types/education.types';
-import GlassCard from '../reusable/GlassCard';
 
 interface EducationInfoProps {
   education: EducationType;
@@ -7,29 +6,26 @@ interface EducationInfoProps {
 
 const EducationInfo = ({ education }: EducationInfoProps) => {
   return (
-    <GlassCard className="flex flex-col items-end gap-y-3 rounded-2xl p-6">
-      <h1 className="flex flex-col gap-y-2 text-3xl font-semibold">
+    <div className="relative flex h-full w-full flex-col gap-y-3 rounded-2xl py-3">
+      <h1 className="text-3xl font-semibold">
         {education.school}
-        <span className="text-white-50 text-lg">🗓️&nbsp;{education.date}</span>
+        <div className="flex items-center gap-x-2 text-lg">
+          <img src="/images/calendar.svg" alt="calendar" className="inline size-4" />
+          <span className="text-white/50">{education.date}</span>
+        </div>
       </h1>
-      <p className="text-xl font-bold text-emerald-500 italic">{education.degree}</p>
+      <p className="flex items-center gap-x-2 text-xl font-light text-emerald-500 italic">
+        <div className="inline h-6 w-1.5 rounded-full bg-gradient-to-r from-accent to-[#00c9ff]" />
+        {education.degree}
+      </p>
       {education.certificateLink && (
         <a href={education.certificateLink} target="_blank" rel="noopener noreferrer">
-          <p className="font-xl w-fit text-white/50 underline underline-offset-4 transition-colors duration-300 hover:text-white">
+          <div className="font-xl w-fit rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-white/80 transition-colors hover:text-white/50">
             View Certificate
-          </p>
+          </div>
         </a>
       )}
-      {education.highlights && (
-        <ul className="text-white-50 flex list-disc flex-col gap-5 text-end">
-          {education.highlights.map((highlight, index) => (
-            <li key={index} className="text-lg">
-              {highlight}
-            </li>
-          ))}
-        </ul>
-      )}
-    </GlassCard>
+    </div>
   );
 };
 

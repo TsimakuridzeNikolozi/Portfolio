@@ -54,70 +54,68 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="flex h-dvh w-full items-center justify-center">
-      <div className="flex w-full items-center justify-start">
-        <GlassCard className="mx-16 rounded-xl p-10">
-          <form ref={formRef} onSubmit={handleSubmit} className="flex w-full flex-col gap-7">
-            <div className="flex flex-col gap-2">
-              <label htmlFor="name" className="text-sm font-medium tracking-wide text-white/80 uppercase">
-                Your name
-              </label>
-              <input
-                type="text"
-                autoComplete="name"
-                id="name"
-                name="name"
-                value={form.name}
-                onChange={handleChange}
-                placeholder="What's your name?"
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white backdrop-blur-sm transition-all duration-300 placeholder:text-white/40 hover:border-white/20 hover:bg-white/8 focus:border-accent/50 focus:bg-white/10 focus:ring-2 focus:ring-accent/20 focus:outline-none"
-                required
-              />
-            </div>
+    <section id="contact" className="flex h-dvh w-full items-center justify-center gap-x-16 px-16">
+      <GlassCard className="!h-fit rounded-xl p-10">
+        <form ref={formRef} onSubmit={handleSubmit} className="flex w-full flex-col gap-7">
+          <div className="flex flex-col gap-2">
+            <label htmlFor="name" className="text-sm font-medium tracking-wide text-white/80 uppercase">
+              Your name
+            </label>
+            <input
+              type="text"
+              autoComplete="name"
+              id="name"
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              placeholder="What's your name?"
+              className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white backdrop-blur-sm transition-all duration-300 placeholder:text-white/40 hover:border-white/20 hover:bg-white/8 focus:border-accent/50 focus:bg-white/10 focus:ring-2 focus:ring-accent/20 focus:outline-none"
+              required
+            />
+          </div>
 
-            <div className="flex flex-col gap-2">
-              <label htmlFor="email" className="text-sm font-medium tracking-wide text-white/80 uppercase">
-                Your Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                autoComplete="email"
-                value={form.email}
-                onChange={handleChange}
-                placeholder="What's your email address?"
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white backdrop-blur-sm transition-all duration-300 placeholder:text-white/40 hover:border-white/20 hover:bg-white/8 focus:border-accent/50 focus:bg-white/10 focus:ring-2 focus:ring-accent/20 focus:outline-none"
-                required
-              />
-            </div>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="email" className="text-sm font-medium tracking-wide text-white/80 uppercase">
+              Your Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              autoComplete="email"
+              value={form.email}
+              onChange={handleChange}
+              placeholder="What's your email address?"
+              className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white backdrop-blur-sm transition-all duration-300 placeholder:text-white/40 hover:border-white/20 hover:bg-white/8 focus:border-accent/50 focus:bg-white/10 focus:ring-2 focus:ring-accent/20 focus:outline-none"
+              required
+            />
+          </div>
 
-            <div className="flex flex-col gap-2">
-              <label htmlFor="message" className="text-sm font-medium tracking-wide text-white/80 uppercase">
-                Your Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={form.message}
-                onChange={handleChange}
-                placeholder="How can I help you?"
-                rows={5}
-                className="w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white backdrop-blur-sm transition-all duration-300 placeholder:text-white/40 hover:border-white/20 hover:bg-white/8 focus:border-accent/50 focus:bg-white/10 focus:ring-2 focus:ring-accent/20 focus:outline-none"
-                required
-              />
-            </div>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="message" className="text-sm font-medium tracking-wide text-white/80 uppercase">
+              Your Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              value={form.message}
+              onChange={handleChange}
+              placeholder="How can I help you?"
+              rows={5}
+              className="w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white backdrop-blur-sm transition-all duration-300 placeholder:text-white/40 hover:border-white/20 hover:bg-white/8 focus:border-accent/50 focus:bg-white/10 focus:ring-2 focus:ring-accent/20 focus:outline-none"
+              required
+            />
+          </div>
 
-            <button
-              type="submit"
-              className="simple-button cursor-pointer rounded-lg disabled:cursor-not-allowed"
-              disabled={loading}
-            >
-              {loading ? 'Sending...' : 'Send Message'}
-            </button>
-          </form>
-        </GlassCard>
-      </div>
+          <button
+            type="submit"
+            className="simple-button cursor-pointer rounded-lg disabled:cursor-not-allowed"
+            disabled={loading}
+          >
+            {loading ? 'Sending...' : 'Send Message'}
+          </button>
+        </form>
+      </GlassCard>
       <div className="h-full max-h-[32rem] min-h-96 w-full">
         <div className="h-full w-full overflow-hidden rounded-3xl hover:cursor-grab">
           <World globeConfig={globeConfig} data={globeArcs} />

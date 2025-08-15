@@ -6,6 +6,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import { EducationCategory } from '../types/education.types';
 import { useMemo, useState } from 'react';
 import Tabs from '../components/reusable/Tabs';
+import GlassCard from '../components/reusable/GlassCard';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -66,11 +67,13 @@ const Education = () => {
         setActiveTab={setActiveTab}
       />
 
-      <div className="relative flex flex-col gap-6">
+      <GlassCard className="relative flex flex-col items-center gap-6 px-4">
         {filteredEducation.map((education) => (
-          <EducationEntry key={education.school + education.degree} education={education} activeTab={activeTab} />
+          <>
+            <EducationEntry key={education.school + education.degree} education={education} />
+          </>
         ))}
-      </div>
+      </GlassCard>
     </section>
   );
 };

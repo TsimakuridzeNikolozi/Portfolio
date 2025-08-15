@@ -40,7 +40,7 @@ const FooterLink = () => {
     <a
       ref={linkRef}
       href="#hero"
-      className="flex items-center gap-x-2 rounded-full border border-accent/20 p-1.5 transition-all duration-300 hover:backdrop-blur-lg"
+      className="flex w-fit items-center gap-x-2 rounded-full border border-accent/20 p-1.5 transition-all duration-300 hover:backdrop-blur-lg"
     >
       <img ref={iconRef} src="/images/curved-arrow.svg" alt="logo" className="size-7" />
     </a>
@@ -49,10 +49,10 @@ const FooterLink = () => {
 
 const Footer = () => {
   return (
-    <footer id="footer" className="padding-x relative flex w-full items-center justify-between py-6">
+    <footer id="footer" className="padding-x relative grid w-full grid-cols-3 py-6">
       <FooterLink />
       <Socials />
-      <p className="text-center text-white md:text-end">© {new Date().getFullYear()} Nikolozi Tsimakuridze.</p>
+      <p className="text-end text-white md:text-end">© {new Date().getFullYear()} Nikolozi Tsimakuridze.</p>
     </footer>
   );
 };

@@ -2,7 +2,7 @@ import { SOCIALS } from '../constants';
 
 const Socials = () => {
   return (
-    <div className="flex items-center gap-x-4">
+    <div className="flex w-full justify-center gap-x-4">
       {SOCIALS.map((social) => (
         <a
           href={social.link}

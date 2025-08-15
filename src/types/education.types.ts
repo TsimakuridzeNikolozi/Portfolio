@@ -11,5 +11,4 @@ export type EducationType = {
   borderColor: string;
   degree?: string;
   certificateLink?: string;
-  highlights?: string[];
 };

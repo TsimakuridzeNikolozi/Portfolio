@@ -43,7 +43,6 @@ const SectionHeader = memo(({ primary, secondary, className, ...props }: Section
         gradientText
         startOnVisible
         showCursor={false}
-        typingSpeed={100}
       />
       <h2 className="text-6xl font-bold">{primary}</h2>
     </div>
