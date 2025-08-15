@@ -24,7 +24,7 @@ export const SKILLS: Skill[] = [
   {
     name: 'MongoDB',
     icon: '/images/tech/mongodb.png',
-    score: 80,
+    score: 90,
   },
   {
     name: 'Foundry',

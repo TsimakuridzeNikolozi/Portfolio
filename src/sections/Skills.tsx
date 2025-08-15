@@ -27,7 +27,7 @@ const Skills = () => {
   });
 
   return (
-    <section id="skills" className="flex h-dvh w-full items-start justify-center">
+    <section id="skills" className="flex min-h-[80dvh] w-full items-start justify-center will-change-transform">
       <div ref={wrapperRef} className="skills-container-wrapper">
         <div ref={containerRef} className="skills-container animate-none">
           {SKILLS.map((skill, index) => (

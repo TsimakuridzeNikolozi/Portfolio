@@ -5,8 +5,8 @@
 
 // Pre-calculate constants to avoid repeated calculations
 const FULL_CIRCLE = 360;
-const FRONT_END = 45;
-const FRONT_START = 315;
+const FRONT_END = 120;
+const FRONT_START = 240;
 
 // Cache for normalized rotations to avoid repeated modulo operations
 const normalizationCache = new Map<number, number>();

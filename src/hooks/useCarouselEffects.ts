@@ -12,16 +12,11 @@ interface EffectsConfig {
 const DEFAULT_CONFIG: EffectsConfig = {
   frontBrightness: 1,
   backBrightness: 0.5,
-  transitionZone: 15,
+  transitionZone: 30,
 };
 
-// Pre-calculate constants to avoid repeated calculations
 const TOTAL_SKILLS = SKILLS.length;
 
-/**
- * Custom hook for managing carousel visual effects (blur and brightness)
- * Optimized for performance with caching and reduced calculations
- */
 export const useCarouselEffects = (
   containerRef: RefObject<HTMLDivElement | null>,
   config: Partial<EffectsConfig> = {},
@@ -31,15 +26,13 @@ export const useCarouselEffects = (
   const lastRotationRef = useRef<number>(0);
   const animationFrameRef = useRef<number | null>(null);
 
-  // Cache DOM elements on first access
   const getCards = useCallback(() => {
     if (!cardsRef.current && containerRef.current) {
-      cardsRef.current = containerRef.current.querySelectorAll('.skills-card');
+      cardsRef.current = containerRef.current.querySelectorAll('.skill-card');
     }
     return cardsRef.current;
   }, [containerRef]);
 
-  // Throttled update using requestAnimationFrame
   const updateEffects = useCallback(() => {
     if (animationFrameRef.current) {
       cancelAnimationFrame(animationFrameRef.current);
@@ -75,7 +68,6 @@ export const useCarouselEffects = (
     });
   }, [containerRef, getCards, effectsConfig]);
 
-  // Cleanup function
   const cleanup = useCallback(() => {
     if (animationFrameRef.current) {
       cancelAnimationFrame(animationFrameRef.current);

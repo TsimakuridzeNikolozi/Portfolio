@@ -11,6 +11,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import TransitionSection from './components/reusable/TransitionSection';
+import { Toaster } from 'react-hot-toast';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,7 +24,10 @@ const App = () => {
       endTrigger: '#work-experience-to-education',
       scrub: true,
       pin: '#work-experience-header',
-      pinSpacing: false,
+      animation: gsap.to(['.background-image-1', '.background-image-2'], {
+        rotateY: 0,
+        ease: 'power2.inOut',
+      }),
     });
 
     const educationTrigger = ScrollTrigger.create({
@@ -33,28 +37,31 @@ const App = () => {
       endTrigger: '#education',
       scrub: true,
       pin: '#education-header',
-      pinSpacing: false,
     });
 
-    const skillsTrigger = ScrollTrigger.create({
-      trigger: '#education-to-skills',
+    const contactTrigger = ScrollTrigger.create({
+      trigger: '#skills-to-contact',
       start: 'top top',
-      end: 'top 25%',
-      endTrigger: '#skills',
+      end: 'top 10%',
+      endTrigger: '#contact',
       scrub: true,
-      pin: '#skills-header',
-      pinSpacing: false,
+      pin: '#contact-header',
+      animation: gsap.to(['.background-image-1', '.background-image-2'], {
+        scale: 4,
+        ease: 'power2.inOut',
+      }),
     });
 
     return () => {
       workExperienceTrigger.kill();
       educationTrigger.kill();
-      skillsTrigger.kill();
+      contactTrigger.kill();
     };
   });
 
   return (
     <div className="page">
+      <Toaster toastOptions={{ className: '!bg-white/20 !text-white backdrop-blur-lg' }} />
       <Navbar />
       <Hero />
       <TransitionSection id="hero-to-work-experience">
@@ -71,10 +78,18 @@ const App = () => {
       </TransitionSection>
       <Education />
       {/* <Projects /> */}
-      <TransitionSection id="education-to-skills">
-        <SectionHeader id="skills-header" primary="Technical Skills" secondary="Technologies I've Worked With" />
+      <TransitionSection id="education-to-skills" className="h-[50dvh]">
+        <SectionHeader
+          id="skills-header"
+          primary="Technical Skills"
+          className="h-full justify-end pb-10"
+          secondary="Technologies I've Worked With"
+        />
       </TransitionSection>
       <Skills />
+      <TransitionSection id="skills-to-contact">
+        <SectionHeader id="contact-header" primary="Let's Connect" secondary="Get in Touch" />
+      </TransitionSection>
       <Contact />
       <Footer />
     </div>

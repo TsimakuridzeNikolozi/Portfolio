@@ -25,6 +25,7 @@ body {
   background-image: url('images/background.svg');
   background-size: cover;
   background-position: left;
+  will-change: transform;
 }
 
 .background-image-1 {
@@ -33,7 +34,7 @@ body {
 }
 
 .background-image-2 {
-  opacity: 0.1;
+  opacity: 0.12;
 }
 
 section {
@@ -141,6 +142,10 @@ section {
   }
 }
 
+[id$='-header'] {
+  transform: 0s;
+}
+
 .glass-card {
   width: 100%;
   height: 100%;
@@ -182,11 +187,6 @@ section {
   transform: perspective(1000px) rotateY(10deg);
 }
 
-#skills {
-  contain: layout style paint;
-  isolation: isolate;
-}
-
 .skills-container-wrapper {
   position: relative;
   display: flex;
@@ -205,15 +205,6 @@ section {
   transform-style: preserve-3d;
   will-change: transform;
   contain: layout style;
-}
-
-@keyframes gallery-rotation {
-  0% {
-    transform: perspective(1000px) rotateY(0deg);
-  }
-  100% {
-    transform: perspective(1000px) rotateY(360deg);
-  }
 }
 
 .skill-card {
@@ -301,9 +292,8 @@ section {
   backdrop-filter: blur(10px);
 }
 
-/* Three Proficiency Level Colors */
 .skill-progress-ring.advanced .skill-progress-fill {
-  stroke: #2cfb97; /* Your accent color */
+  stroke: #2cfb97;
 }
 
 .skill-level.advanced {
@@ -313,7 +303,7 @@ section {
 }
 
 .skill-progress-ring.intermediate .skill-progress-fill {
-  stroke: #f59e0b; /* Yellow-orange */
+  stroke: #f59e0b;
 }
 
 .skill-level.intermediate {
@@ -323,7 +313,7 @@ section {
 }
 
 .skill-progress-ring.beginner .skill-progress-fill {
-  stroke: #ff746c; /* Pinkish red/pastel red */
+  stroke: #ff746c;
 }
 
 .skill-level.beginner {

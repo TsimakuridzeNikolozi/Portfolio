@@ -53,7 +53,7 @@ const HeroExperience = () => {
       scrollTrigger: {
         trigger: '#education-to-skills',
         start: 'top bottom-=15%',
-        end: 'bottom bottom-=15%',
+        end: 'bottom bottom-=40%',
         scrub: true,
       },
     });
@@ -69,7 +69,7 @@ const HeroExperience = () => {
     educationToSkillTimeline.to(
       meshGroup.position,
       {
-        y: 0,
+        y: 1,
         x: 0,
         ease: 'power2.inOut',
         duration: 1.5,
@@ -88,8 +88,38 @@ const HeroExperience = () => {
       '<0.1',
     );
 
+    const footerTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#contact',
+        start: 'top bottom',
+        end: '+40%',
+        scrub: true,
+      },
+    });
+
+    footerTimeline.to(meshGroup.position, {
+      y: -20,
+      x: 0,
+      ease: 'power2.inOut',
+      duration: 1.5,
+    });
+
+    footerTimeline.to(
+      meshGroup.scale,
+      {
+        x: 0.6,
+        y: 0.6,
+        z: 0.6,
+        ease: 'power2.inOut',
+        duration: 1.5,
+      },
+      '<0.1',
+    );
+
     return () => {
       tl.kill();
+      educationToSkillTimeline.kill();
+      footerTimeline.kill();
     };
   }, [meshGroup]);
 
