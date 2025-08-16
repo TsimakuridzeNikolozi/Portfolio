@@ -14,10 +14,10 @@ const EducationInfo = ({ education }: EducationInfoProps) => {
           <span className="text-white/50">{education.date}</span>
         </div>
       </h1>
-      <p className="flex items-center gap-x-2 text-xl font-light text-emerald-500 italic">
+      <div className="flex items-center gap-x-2 text-xl font-light text-emerald-500 italic">
         <div className="inline h-6 w-1.5 rounded-full bg-gradient-to-r from-accent to-[#00c9ff]" />
         {education.degree}
-      </p>
+      </div>
       {education.certificateLink && (
         <a href={education.certificateLink} target="_blank" rel="noopener noreferrer">
           <div className="font-xl w-fit rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-white/80 transition-colors hover:text-white/50">

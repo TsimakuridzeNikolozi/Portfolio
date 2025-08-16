@@ -3,27 +3,29 @@ import { cn } from '../../utils/cn';
 
 interface ArrowButtonProps {
   text: string;
-  id: string;
   className?: string;
+  targetId?: string;
   direction?: 'up' | 'down';
+  onClick?: () => void;
 }
 
-const ArrowButton = ({ text, id, className, direction = 'down' }: ArrowButtonProps) => {
+const ArrowButton = ({ text, targetId, className, direction = 'down', onClick }: ArrowButtonProps) => {
   const onButtonClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault();
-      const target = document.getElementById(id);
+      if (!targetId) return;
+      const target = document.getElementById(targetId);
 
-      if (!target || !id) return;
+      if (!target || !targetId) return;
 
       const top = target.getBoundingClientRect().top + window.pageYOffset - 150;
       window.scrollTo({ top, behavior: 'smooth' });
     },
-    [id],
+    [targetId],
   );
 
   return (
-    <a onClick={onButtonClick} className={cn('relative z-20 cursor-pointer', className)}>
+    <a onClick={onClick ?? onButtonClick} className={cn('relative z-20 cursor-pointer', className)}>
       <div className="arrow-button group">
         <div className="bg-circle" />
         <p className="text">{text}</p>

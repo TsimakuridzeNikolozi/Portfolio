@@ -3,6 +3,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ArrowButton from './reusable/ArrowButton';
 import TextType from './reusable/TextType';
+import { saveAs } from 'file-saver';
+import toast from 'react-hot-toast';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -35,6 +37,17 @@ const HeroHeader = () => {
     });
   });
 
+  const downloadResumeClick = () => {
+    try {
+      saveAs('/documents/Nikolozi Tsimakuridze - Resume.pdf', 'Nikolozi Tsimakuridze - Resume.pdf');
+      toast.success('Resume downloaded successfully!');
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
+      toast.error('Failed to download resume, please try again.');
+    }
+  };
+
   return (
     <header id="hero-header" className="padding-x relative flex w-screen flex-col justify-center py-20 md:w-full">
       <div className="flex flex-col items-center gap-7">
@@ -48,7 +61,7 @@ const HeroHeader = () => {
           </h1>
         </div>
 
-        <ArrowButton text="See My Work" className="h-12 w-60 md:h-16 md:w-80" id="work-experience" />
+        <ArrowButton text="See My Resume" className="h-12 w-60 md:h-16 md:w-80" onClick={downloadResumeClick} />
       </div>
     </header>
   );

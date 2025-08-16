@@ -69,9 +69,7 @@ const Education = () => {
 
       <GlassCard className="relative flex flex-col items-center gap-6 px-4">
         {filteredEducation.map((education) => (
-          <>
-            <EducationEntry key={education.school + education.degree} education={education} />
-          </>
+          <EducationEntry key={education.school + education.degree} education={education} />
         ))}
       </GlassCard>
     </section>
