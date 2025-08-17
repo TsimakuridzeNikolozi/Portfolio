@@ -59,9 +59,9 @@ const HeroExperience = () => {
     });
 
     educationToSkillTimeline.to(meshGroup.scale, {
-      x: 0.8,
-      y: 0.8,
-      z: 0.8,
+      x: 0.6,
+      y: 0.6,
+      z: 0.6,
       ease: 'power2.inOut',
       duration: 1.5,
     });
@@ -69,8 +69,8 @@ const HeroExperience = () => {
     educationToSkillTimeline.to(
       meshGroup.position,
       {
-        y: 1,
-        x: 0,
+        y: 12,
+        x: 24,
         ease: 'power2.inOut',
         duration: 1.5,
       },
@@ -80,7 +80,7 @@ const HeroExperience = () => {
     educationToSkillTimeline.to(
       meshGroup.rotation,
       {
-        y: 0,
+        y: 0.7,
         z: 0,
         ease: 'power1.inOut',
         duration: 1.8,
@@ -88,38 +88,9 @@ const HeroExperience = () => {
       '<0.1',
     );
 
-    const footerTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: '#contact',
-        start: 'top bottom-=20%',
-        end: '+40%',
-        scrub: true,
-      },
-    });
-
-    footerTimeline.to(meshGroup.position, {
-      y: -20,
-      x: 0,
-      ease: 'power2.inOut',
-      duration: 1.5,
-    });
-
-    footerTimeline.to(
-      meshGroup.scale,
-      {
-        x: 0.6,
-        y: 0.6,
-        z: 0.6,
-        ease: 'power2.inOut',
-        duration: 1.5,
-      },
-      '<0.1',
-    );
-
     return () => {
       heroToWorkExperienceTimeline.kill();
       educationToSkillTimeline.kill();
-      footerTimeline.kill();
     };
   }, [meshGroup]);
 

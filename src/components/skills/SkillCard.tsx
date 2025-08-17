@@ -1,7 +1,6 @@
 import { forwardRef, memo } from 'react';
 import { cn } from '../../utils/cn';
 import { Skill } from '../../types/skills.types';
-import GlassCard from '../reusable/GlassCard';
 
 interface SkillCardProps extends React.HTMLAttributes<HTMLDivElement> {
   skill: Skill;
@@ -20,7 +19,7 @@ const SkillCard = memo(
     const { level, color } = getProficiencyLevel(skill.score);
 
     return (
-      <GlassCard className={cn('skill-card', className)} ref={ref} {...props}>
+      <div className={cn('skill-card', className)} ref={ref} {...props}>
         <div className="skill-name">{skill.name}</div>
 
         <div className="skill-progress-container">
@@ -47,7 +46,7 @@ const SkillCard = memo(
         </div>
 
         <div className={cn('skill-level', color)}>{level}</div>
-      </GlassCard>
+      </div>
     );
   }),
 );
