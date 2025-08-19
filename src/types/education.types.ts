@@ -1,6 +1,6 @@
 export enum EducationCategory {
-  GENERAL = 'General',
   CERTIFICATIONS = 'Certifications',
+  GENERAL = 'General',
 }
 
 export type EducationType = {
@@ -8,7 +8,7 @@ export type EducationType = {
   school: string;
   date: string;
   logoPath: string;
-  borderColor: string;
+  websiteLink: string;
   degree?: string;
   certificateLink?: string;
 };

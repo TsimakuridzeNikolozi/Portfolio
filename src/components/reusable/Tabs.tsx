@@ -17,10 +17,7 @@ const Tabs = <T extends ReactNode>({ tabs, activeTab, setActiveTab }: TabsProps<
         <button
           key={tab?.toString()}
           onClick={() => setActiveTab(tab)}
-          className={cn(
-            'rounded-full px-8 py-3 text-sm transition-all duration-300 md:text-base',
-            activeTab === tab ? 'bg-accent text-black' : 'cursor-pointer text-white/70 hover:text-white',
-          )}
+          className={cn('tab-button', activeTab === tab ? 'cursor-default bg-accent text-black' : '')}
         >
           {tab}
         </button>

@@ -51,9 +51,9 @@ const HeroExperience = () => {
 
     const educationToSkillTimeline = gsap.timeline({
       scrollTrigger: {
-        trigger: '#education-to-skills',
-        start: 'top bottom-=15%',
-        end: 'bottom bottom-=40%',
+        trigger: '#education',
+        start: 'top top',
+        end: 'bottom top-=50%',
         scrub: true,
       },
     });

@@ -119,6 +119,10 @@ section {
     @apply flex items-center justify-center rounded-full bg-accent px-6 py-4 text-black backdrop-blur-md transition-all duration-300 hover:bg-accent/70;
   }
 
+  .tab-button {
+    @apply cursor-pointer rounded-full px-8 py-3 text-sm text-white/70 transition-all duration-300 hover:text-white md:text-base;
+  }
+
   .timeline-wrapper {
     @apply absolute top-1/2 left-5 flex h-full -translate-y-1/2 justify-center md:left-10 xl:left-14;
   }

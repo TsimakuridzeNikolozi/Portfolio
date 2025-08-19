@@ -4,14 +4,33 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { EducationCategory } from '../types/education.types';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Tabs from '../components/reusable/Tabs';
 import GlassCard from '../components/reusable/GlassCard';
+import Pagination from '../components/reusable/Pagination';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Education = () => {
-  const [activeTab, setActiveTab] = useState<EducationCategory>(EducationCategory.GENERAL);
+  const [activeTab, setActiveTab] = useState<EducationCategory>(EducationCategory.CERTIFICATIONS);
+
+  const filteredEducation = useMemo(() => {
+    return EDUCATION.filter((education) => education.category === activeTab);
+  }, [activeTab]);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 3;
+  const totalPages = Math.ceil(filteredEducation.length / itemsPerPage);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [activeTab]);
+
+  const paginatedEducation = useMemo(() => {
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    return filteredEducation.slice(start, end);
+  }, [currentPage, filteredEducation, itemsPerPage]);
 
   useGSAP(() => {
     ScrollTrigger.getById('timelineTrigger')?.kill();
@@ -53,22 +72,22 @@ const Education = () => {
       timelineTrigger.kill();
       logoTrigger.kill();
     };
-  }, [activeTab]);
-
-  const filteredEducation = useMemo(() => {
-    return EDUCATION.filter((education) => education.category === activeTab);
-  }, [activeTab]);
+  }, [paginatedEducation]);
 
   return (
     <section id="education" className="mx-6 flex w-1/2 max-w-4xl flex-col gap-y-8">
-      <Tabs
-        tabs={[EducationCategory.GENERAL, EducationCategory.CERTIFICATIONS]}
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-      />
+      <div className="flex items-center justify-between gap-x-4">
+        <Tabs
+          tabs={[EducationCategory.CERTIFICATIONS, EducationCategory.GENERAL]}
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+        />
+
+        <Pagination totalPages={totalPages} currentPage={currentPage} onPageChange={setCurrentPage} />
+      </div>
 
       <GlassCard className="relative flex flex-col items-center gap-6 px-4">
-        {filteredEducation.map((education) => (
+        {paginatedEducation.map((education) => (
           <EducationEntry key={education.school + education.degree} education={education} />
         ))}
       </GlassCard>

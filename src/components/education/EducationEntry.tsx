@@ -17,7 +17,9 @@ const EducationEntry = ({ education }: EducationEntryProps) => {
         <div className="relative z-20 flex w-full items-center justify-end gap-5 md:gap-10 xl:gap-12">
           <div className={cn('timeline-logo-wrapper', 'border-accent')}></div>
           <div className="timeline-logo">
-            <img src={education.logoPath} alt="logo" className="rounded-full p-0.5" />
+            <a href={education.websiteLink} target="_blank" rel="noopener noreferrer" className="z-10 cursor-pointer">
+              <img src={education.logoPath} alt="logo" className="rounded-full p-0.5" />
+            </a>
           </div>
           <EducationInfo education={education} />
         </div>
