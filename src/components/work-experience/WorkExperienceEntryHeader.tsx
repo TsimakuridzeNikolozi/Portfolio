@@ -1,7 +1,7 @@
-import { WorkExperience } from '../../types/work.types';
+import { WorkExperienceType } from '../../types/work.types';
 
 interface WorkExperienceEntryHeaderProps {
-  workExperience: WorkExperience;
+  workExperience: WorkExperienceType;
 }
 
 const WorkExperienceEntryHeader = ({ workExperience }: WorkExperienceEntryHeaderProps) => {

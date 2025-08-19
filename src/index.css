@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap')
+layer(fonts);
 @import 'tailwindcss';
 
 html,
@@ -22,7 +23,7 @@ body {
   z-index: 1;
   width: 100dvw;
   height: 100dvh;
-  background-image: url('images/background.svg');
+  background-image: url('/images/background.svg');
   background-size: cover;
   background-position: left;
   will-change: transform;
@@ -104,12 +105,9 @@ section {
   }
 
   .hero-text {
-    @apply pointer-events-none relative z-10 flex flex-col justify-center text-center text-[30px] font-semibold md:text-[48px] xl:text-8xl;
+    @apply pointer-events-none relative z-10 flex w-full flex-col justify-center text-center text-[30px] font-semibold md:text-[48px] xl:text-8xl;
     img {
       @apply size-8 object-contain md:size-10;
-    }
-    .slide {
-      @apply absolute h-[48px] translate-y-0 overflow-hidden px-2 py-[30px] pt-0 md:h-[66px] md:translate-y-1 md:px-5;
     }
   }
 
@@ -152,7 +150,7 @@ section {
   border-radius: 1rem;
   position: relative;
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(8px);
 }
 
 .glass-card::before {
@@ -167,18 +165,6 @@ section {
     linear-gradient(black, black) border-box,
     linear-gradient(black, black) padding-box;
   mask-composite: subtract;
-}
-
-.gradient-line-general {
-  height: 100%;
-  width: 2px;
-  background: linear-gradient(180deg, #2ab1e0 33%, #253c4c, #fbc946, #ffd100);
-}
-
-.gradient-line-certifications {
-  height: 100%;
-  width: 2px;
-  background: linear-gradient(180deg, #2c2a6b, #2c2a6b, #61378e, #04dffc);
 }
 
 .work-experience-entry {
@@ -222,10 +208,11 @@ section {
   will-change: filter, transform;
   --facing: 1;
   --brightness: calc(0.7 + 0.3 * var(--facing));
-  background: #1f2721;
+  background: #1a2725;
   border: 2px solid color-mix(in srgb, rgba(44, 251, 151, 0.5) calc(var(--facing) * 100%), transparent);
   border-radius: 1rem;
-  filter: brightness(var(--brightness));
+  --is-facing-point-four: calc(1 - abs(sign(var(--facing) - 0.4)));
+  filter: brightness(var(--brightness)) blur(calc(var(--is-facing-point-four) * 4px));
 }
 
 .skill-card > div {

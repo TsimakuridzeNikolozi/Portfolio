@@ -14,14 +14,14 @@ const SectionHeader = memo(({ primary, secondary, className, ...props }: Section
       className={cn('flex w-full flex-col items-center justify-center gap-2 will-change-transform', className)}
     >
       <TextType
-        className="rounded-full bg-white/15 px-3 py-1.5 text-lg backdrop-blur-lg"
+        className="rounded-full bg-white/15 px-3 py-1.5 text-xl backdrop-blur-lg"
         loop={false}
         text={secondary}
         gradientText
         startOnVisible
         showCursor={false}
       />
-      <h2 className="text-6xl font-bold">{primary}</h2>
+      <h2 className="text-7xl font-bold">{primary}</h2>
     </div>
   );
 });

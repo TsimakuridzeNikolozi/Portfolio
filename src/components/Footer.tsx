@@ -40,9 +40,10 @@ const FooterLink = () => {
     <a
       ref={linkRef}
       href="#hero"
+      aria-label="Scroll to top of page"
       className="flex w-fit items-center gap-x-2 rounded-full border border-accent/20 p-1.5 transition-all duration-300 hover:backdrop-blur-lg"
     >
-      <img ref={iconRef} src="/images/curved-arrow.svg" alt="logo" className="size-7" />
+      <img ref={iconRef} src="/images/curved-arrow.svg" alt="Scroll to top arrow" className="size-7" />
     </a>
   );
 };

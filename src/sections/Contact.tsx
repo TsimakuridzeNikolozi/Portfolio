@@ -1,5 +1,4 @@
 import { useCallback, useRef, useState } from 'react';
-import emailjs from '@emailjs/browser';
 import { World } from '../components/World';
 import { globeArcs, globeConfig } from '../constants/globe.constants';
 import GlassCard from '../components/reusable/GlassCard';
@@ -26,6 +25,7 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
 
+    const emailjs = await import('@emailjs/browser');
     toast.promise(
       async () => {
         if (!formRef.current) return;

@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+Disallow: /uploads/
+
+Crawl-delay: 1
+
+# Allow access to CSS and JS files for proper rendering
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.webp$
+Allow: /*.avif$
+Allow: /*.pdf$
+Allow: /*.glb$
+
+# Block access to any temporary or development files
+Disallow: /*.tmp$
+Disallow: /*.log$
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.vscode/
+Disallow: /src/
