@@ -7,6 +7,8 @@ import TransitionSection from './components/reusable/TransitionSection';
 import { Toaster } from 'react-hot-toast';
 import { useHeaderAnimation } from './hooks/useHeaderAnimation';
 import SuspenseSpinner from './components/reusable/SuspenseSpinner';
+import Testimonials from './sections/Testimonials';
+import { useGlowingCard } from './hooks/useGlowingCard';
 
 const Contact = lazy(() => import('./sections/Contact'));
 const Education = lazy(() => import('./sections/Education'));
@@ -15,6 +17,7 @@ const WorkExperience = lazy(() => import('./sections/WorkExperience'));
 
 const App = () => {
   useHeaderAnimation();
+  useGlowingCard();
 
   return (
     <div className="page">
@@ -44,7 +47,13 @@ const App = () => {
       <Suspense fallback={<SuspenseSpinner />}>
         <Skills />
       </Suspense>
-      <TransitionSection id="skills-to-contact">
+      <TransitionSection id="skills-to-testimonials">
+        <SectionHeader id="testimonials-header" primary="Testimonials" secondary="What People Say About Me" />
+      </TransitionSection>
+      <Suspense fallback={<SuspenseSpinner />}>
+        <Testimonials />
+      </Suspense>
+      <TransitionSection id="testimonials-to-contact">
         <SectionHeader id="contact-header" primary="Let's Connect" secondary="Get in Touch" />
       </TransitionSection>
       <Suspense fallback={<SuspenseSpinner />}>

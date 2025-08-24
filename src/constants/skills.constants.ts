@@ -29,7 +29,7 @@ export const SKILLS: Skill[] = [
   {
     name: 'Foundry',
     icon: '/images/tech/foundry.avif',
-    score: 60,
+    score: 50,
   },
   {
     name: 'Solidity',

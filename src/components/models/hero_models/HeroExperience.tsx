@@ -1,4 +1,3 @@
-import { OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import { useMediaQuery } from 'react-responsive';
 import { Working } from './Working';
@@ -48,6 +47,22 @@ const HeroExperience = () => {
       },
       '<',
     );
+
+    const workExperienceToEducationTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#work-experience',
+        start: 'top top',
+        end: 'bottom top-=50%',
+        scrub: true,
+      },
+    });
+
+    workExperienceToEducationTimeline.to(meshGroup.rotation, {
+      y: -2.7,
+      z: 0,
+      ease: 'power2.inOut',
+      duration: 1.5,
+    });
 
     const educationToSkillTimeline = gsap.timeline({
       scrollTrigger: {
@@ -99,22 +114,15 @@ const HeroExperience = () => {
       <Canvas
         id="hero-experience"
         camera={{
-          position: [-240, -45, 90],
+          position: [0, -4.5, 20],
           fov: 45,
         }}
       >
         <ambientLight intensity={0.2} color="#a259ff" />
-        <OrbitControls
-          enablePan={false} // Prevents panning of the scene
-          enableZoom={false}
-          enableRotate={false}
-          maxDistance={20}
-          maxPolarAngle={Math.PI / 1.5}
-        />
 
         <Suspense fallback={null}>
           <HeroLights />
-          <group scale={isMobile ? 0.5 : 0.85} position={[0, -10, 0]} rotation={[0, -1.2, 0]}>
+          <group scale={isMobile ? 0.5 : 0.85} position={[0, -10.5, 0]}>
             <Working setMeshGroup={setMeshGroup} />
           </group>
         </Suspense>

@@ -11,14 +11,15 @@ export const NAVIGATION_LINKS: NavigationLinkType[] = [
     href: '#education',
     icon: '/images/navbar/education.svg',
   },
-  {
-    label: 'Projects',
-    href: '#projects',
-    icon: '/images/navbar/projects.svg',
-  },
+
   {
     label: 'Skills',
     href: '#skills',
     icon: '/images/navbar/skills.svg',
+  },
+  {
+    label: 'Testimonials',
+    href: '#testimonials',
+    icon: '/images/navbar/testimonials.svg',
   },
 ];

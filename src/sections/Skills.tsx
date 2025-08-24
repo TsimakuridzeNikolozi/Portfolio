@@ -107,7 +107,7 @@ const Skills = () => {
   });
 
   return (
-    <section id="skills" className="flex h-dvh w-full items-center justify-center">
+    <section id="skills" className="flex h-dvh w-full flex-col items-center justify-center">
       <div ref={wrapperRef} className="skills-container-wrapper">
         <div ref={proxyRef} className="draggable-proxy absolute hidden size-full will-change-transform" />
         <div ref={containerRef} className="skills-container">
@@ -115,6 +115,11 @@ const Skills = () => {
             <SkillCard key={skill.name} skill={skill} style={{ '--i': index } as React.CSSProperties} />
           ))}
         </div>
+      </div>
+
+      <div className="mt-20 flex flex-col items-center justify-center gap-y-2">
+        <img src="/images/drag-indicator.png" alt="drag-indicator" className="size-8 animate-pulse" />
+        <p className="text-sm text-white/70">Drag to scroll</p>
       </div>
     </section>
   );

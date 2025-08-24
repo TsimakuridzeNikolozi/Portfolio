@@ -16,6 +16,7 @@ const Tabs = <T extends ReactNode>({ tabs, activeTab, setActiveTab }: TabsProps<
       {tabs.map((tab) => (
         <button
           key={tab?.toString()}
+          role="tab"
           onClick={() => setActiveTab(tab)}
           className={cn('tab-button', activeTab === tab ? 'cursor-default bg-accent text-black' : '')}
         >

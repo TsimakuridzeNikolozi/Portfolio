@@ -37,8 +37,18 @@ export const useHeaderAnimation = () => {
       animation: gsap.fromTo('#skills-header', ...HEADER_ANIMATION_PROPS),
     });
 
+    const testimonialsTrigger = ScrollTrigger.create({
+      trigger: '#skills-to-testimonials',
+      start: 'top top',
+      end: 'top 15%',
+      endTrigger: '#testimonials',
+      scrub: true,
+      pin: '#testimonials-header',
+      animation: gsap.fromTo('#testimonials-header', ...HEADER_ANIMATION_PROPS),
+    });
+
     const contactTrigger = ScrollTrigger.create({
-      trigger: '#skills-to-contact',
+      trigger: '#testimonials-to-contact',
       start: 'top top',
       end: 'top 10%',
       endTrigger: '#contact',
@@ -58,6 +68,7 @@ export const useHeaderAnimation = () => {
       workExperienceTrigger.kill();
       educationTrigger.kill();
       skillsTrigger.kill();
+      testimonialsTrigger.kill();
       contactTrigger.kill();
     };
   });

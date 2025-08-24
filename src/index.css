@@ -7,7 +7,7 @@ body {
   position: relative;
   width: 100dvw;
   overflow-x: hidden;
-  background-color: #0f0f0f;
+  background-color: black;
   color: white;
   scroll-behavior: smooth;
   font-family: 'Mona Sans', sans-serif;
@@ -31,11 +31,11 @@ body {
 
 .background-image-1 {
   transform: rotate(180deg);
-  opacity: 0.2;
+  opacity: 0.25;
 }
 
 .background-image-2 {
-  opacity: 0.12;
+  opacity: 0.15;
 }
 
 section {
@@ -105,7 +105,7 @@ section {
   }
 
   .hero-text {
-    @apply pointer-events-none relative z-10 flex w-full flex-col justify-center text-center text-[30px] font-semibold md:text-[48px] xl:text-8xl;
+    @apply pointer-events-none relative z-10 flex w-full flex-col justify-center text-center text-[2rem] font-semibold md:text-[3rem] xl:text-8xl;
     img {
       @apply size-8 object-contain md:size-10;
     }
@@ -163,7 +163,7 @@ section {
   z-index: -1;
   inset: 0;
   border-radius: inherit;
-  border: 1px solid transparent;
+  border: 0.0625rem solid transparent;
   background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)) border-box;
   mask:
     linear-gradient(black, black) border-box,
@@ -182,7 +182,7 @@ section {
   display: flex;
   align-items: start;
   justify-content: center;
-  width: 1000px;
+  width: 62.5rem;
   height: max-content;
   padding-block: 4rem;
   will-change: transform;
@@ -191,7 +191,7 @@ section {
 .skills-container {
   position: relative;
   width: 10rem;
-  height: 14rem;
+  height: 13rem;
   transform-style: preserve-3d;
   will-change: transform;
   contain: layout style;
@@ -205,15 +205,15 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  min-height: 14rem;
+  min-height: 13rem;
   transform-origin: center;
   transform-style: preserve-3d;
-  transform: rotateY(calc(var(--i) * 360deg / var(--num-skills))) translateZ(500px);
+  transform: rotateY(calc(var(--i) * 360deg / var(--num-skills))) translateZ(31.25rem);
   will-change: filter, transform;
   --facing: 1;
   --brightness: calc(0.7 + 0.3 * var(--facing));
   background: #1a2725;
-  border: 2px solid color-mix(in srgb, rgba(44, 251, 151, 0.5) calc(var(--facing) * 100%), transparent);
+  border: 0.125rem solid color-mix(in srgb, rgba(44, 251, 151, 0.5) calc(var(--facing) * 100%), transparent);
   border-radius: 1rem;
   --is-facing-point-four: calc(1 - abs(sign(var(--facing) - 0.4)));
   filter: brightness(var(--brightness)) blur(calc(var(--is-facing-point-four) * 4px));
@@ -226,7 +226,7 @@ section {
 .skill-name {
   @apply text-center text-sm font-medium text-white;
   font-weight: 600;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.03125rem;
 }
 
 .skill-progress-container {
@@ -256,7 +256,7 @@ section {
   fill: none;
   stroke-width: 4;
   stroke-linecap: round;
-  stroke-dasharray: 314.16; /* 2π × 50 */
+  stroke-dasharray: 314.16;
   stroke-dashoffset: calc(314.16 - (314.16 * var(--progress)) / 100);
   transition: stroke-dashoffset 1.5s ease-in-out;
 }
@@ -283,9 +283,10 @@ section {
 .skill-level {
   @apply rounded-full px-2 py-1 text-xs font-medium;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-size: 10px;
+  letter-spacing: 0.03125rem;
+  font-size: 0.625rem;
   backdrop-filter: blur(10px);
+  border: 0.0625rem solid;
 }
 
 .skill-progress-ring.advanced .skill-progress-fill {
@@ -295,7 +296,7 @@ section {
 .skill-level.advanced {
   background: rgba(44, 251, 151, 0.2);
   color: #2cfb97;
-  border: 1px solid rgba(44, 251, 151, 0.3);
+  border-color: rgba(44, 251, 151, 0.3);
 }
 
 .skill-progress-ring.intermediate .skill-progress-fill {
@@ -305,7 +306,7 @@ section {
 .skill-level.intermediate {
   background: rgba(245, 158, 11, 0.2);
   color: #f59e0b;
-  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-color: rgba(245, 158, 11, 0.3);
 }
 
 .skill-progress-ring.beginner .skill-progress-fill {
@@ -315,5 +316,78 @@ section {
 .skill-level.beginner {
   background: rgba(244, 114, 182, 0.2);
   color: #ff746c;
-  border: 1px solid rgba(244, 114, 182, 0.3);
+  border-color: rgba(244, 114, 182, 0.3);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(25rem, 1fr));
+  gap: 1.5rem;
+  width: calc(100% - 1.25rem);
+  max-width: max-content;
+  place-items: center;
+  height: max-content;
+}
+
+.testimonials-grid:hover > .glowing-card::after {
+  opacity: 1;
+}
+
+.testimonials-grid .glowing-card:nth-child(3n + 2) {
+  translate: 0 1rem;
+}
+
+.glowing-card {
+  background-color: #1a2725;
+  border-radius: 1rem;
+  cursor: pointer;
+  display: flex;
+  height: 16rem;
+  flex-direction: column;
+  position: relative;
+  width: 25rem;
+}
+
+.glowing-card:hover::before {
+  opacity: 1;
+}
+
+.glowing-card::before,
+.glowing-card::after {
+  border-radius: inherit;
+  content: '';
+  height: 100%;
+  left: 0px;
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  transition: opacity 500ms;
+  width: 100%;
+}
+
+.glowing-card::before {
+  background: radial-gradient(
+    50rem circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.06),
+    transparent 40%
+  );
+  z-index: 3;
+}
+
+.glowing-card::after {
+  background: radial-gradient(37.5rem circle at var(--mouse-x) var(--mouse-y), #00c9ff, #2cfb97, transparent 40%);
+  z-index: 1;
+}
+
+.glowing-card > .glowing-card-content {
+  background-color: #1a2725;
+  border-radius: inherit;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  inset: 0.125rem;
+  padding: 1rem;
+  position: absolute;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.2);
+  z-index: 2;
 }
