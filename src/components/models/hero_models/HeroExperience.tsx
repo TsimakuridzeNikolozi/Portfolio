@@ -1,5 +1,5 @@
 import { Canvas } from '@react-three/fiber';
-import { useMediaQuery } from 'react-responsive';
+import { useResponsive } from '../../../hooks/useResponsive';
 import { Working } from './Working';
 import HeroLights from './HeroLights';
 import { Suspense, useState } from 'react';
@@ -11,10 +11,13 @@ import * as THREE from 'three';
 gsap.registerPlugin(ScrollTrigger);
 
 const HeroExperience = () => {
-  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+  const { isDesktop, isXLDesktop, is2XLDesktop } = useResponsive();
   const [meshGroup, setMeshGroup] = useState<THREE.Group | null>(null);
 
+  const scale = is2XLDesktop ? 0.85 : isXLDesktop ? 0.7 : 0.6;
+
   useGSAP(() => {
+    if (!isDesktop) return;
     const heroToWorkExperienceTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: '#hero',
@@ -42,7 +45,7 @@ const HeroExperience = () => {
       meshGroup.position,
       {
         y: 5,
-        x: 12,
+        x: is2XLDesktop ? 12 : isXLDesktop ? 14 : 16,
         ease: 'power4.out',
       },
       '<',
@@ -85,7 +88,7 @@ const HeroExperience = () => {
       meshGroup.position,
       {
         y: 12,
-        x: 24,
+        x: 32,
         ease: 'power2.inOut',
         duration: 1.5,
       },
@@ -105,9 +108,12 @@ const HeroExperience = () => {
 
     return () => {
       heroToWorkExperienceTimeline.kill();
+      workExperienceToEducationTimeline.kill();
       educationToSkillTimeline.kill();
     };
-  }, [meshGroup]);
+  }, [meshGroup, isDesktop, isXLDesktop, is2XLDesktop]);
+
+  if (!isDesktop) return null;
 
   return (
     <figure className="canvas-container">
@@ -122,7 +128,7 @@ const HeroExperience = () => {
 
         <Suspense fallback={null}>
           <HeroLights />
-          <group scale={isMobile ? 0.5 : 0.85} position={[0, -10.5, 0]}>
+          <group scale={scale} position={[0, -10.5 + (0.85 - scale) * 3, 0]}>
             <Working setMeshGroup={setMeshGroup} />
           </group>
         </Suspense>

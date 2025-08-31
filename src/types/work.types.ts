@@ -1,9 +1,9 @@
 export type WorkExperienceType = {
   overview: string;
-  wordmarkPath: string;
   logoPath: string;
   title: string;
+  company: string;
   date: string;
   highlights: string[];
-  accentColor: string;
+  url: string;
 };

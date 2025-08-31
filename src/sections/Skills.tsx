@@ -5,10 +5,12 @@ import gsap from 'gsap';
 import { Draggable } from 'gsap/Draggable';
 import { InertiaPlugin } from 'gsap/InertiaPlugin';
 import { useRef } from 'react';
+import { useResponsive } from '../hooks/useResponsive';
 
 gsap.registerPlugin(Draggable, InertiaPlugin);
 
 const Skills = () => {
+  const { isMobile } = useResponsive();
   const wrapperRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const proxyRef = useRef<HTMLDivElement>(null);
@@ -23,7 +25,7 @@ const Skills = () => {
     const numSkills = SKILLS.length;
     const angleStep = 360 / numSkills;
     const speed = 360 / 60 / 60;
-    const factor = 0.05;
+    const factor = isMobile ? 0.1 : 0.05;
     const ROTATION_THRESHOLD = 2;
 
     const cosCache = new Map<number, number>();
@@ -104,10 +106,10 @@ const Skills = () => {
       gsap.ticker.remove(tick);
       draggable[0].kill();
     };
-  });
+  }, [isMobile]);
 
   return (
-    <section id="skills" className="flex h-dvh w-full flex-col items-center justify-center">
+    <section id="skills" className="flex w-full flex-col items-center justify-center py-20">
       <div ref={wrapperRef} className="skills-container-wrapper">
         <div ref={proxyRef} className="draggable-proxy absolute hidden size-full will-change-transform" />
         <div ref={containerRef} className="skills-container">
@@ -117,7 +119,7 @@ const Skills = () => {
         </div>
       </div>
 
-      <div className="mt-20 flex flex-col items-center justify-center gap-y-2">
+      <div className="mt-10 flex flex-col items-center justify-center gap-y-2 xl:mt-20">
         <img src="/images/drag-indicator.png" alt="drag-indicator" className="size-8 animate-pulse" />
         <p className="text-sm text-white/70">Drag to scroll</p>
       </div>

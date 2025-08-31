@@ -5,9 +5,10 @@ interface PaginationProps {
   totalPages: number;
   currentPage: number;
   onPageChange: (page: number) => void;
+  className?: string;
 }
 
-const Pagination = ({ totalPages, currentPage, onPageChange }: PaginationProps) => {
+const Pagination = ({ totalPages, currentPage, onPageChange, className }: PaginationProps) => {
   const onPreviousClick = useCallback(() => {
     if (currentPage <= 1) return;
     onPageChange(currentPage - 1);
@@ -19,18 +20,25 @@ const Pagination = ({ totalPages, currentPage, onPageChange }: PaginationProps) 
   }, [currentPage, onPageChange, totalPages]);
 
   return (
-    <div className="inline-flex w-max items-center gap-1 divide-x divide-white/20 rounded-full border border-white/20 bg-white/5 p-1 backdrop-blur">
+    <div
+      className={cn(
+        'inline-flex w-max items-center gap-1 divide-x divide-white/20 rounded-full border border-white/20 bg-white/5 p-1 backdrop-blur',
+        className,
+      )}
+    >
       <button
         onClick={onPreviousClick}
         disabled={currentPage === 1}
         className={cn(
           'tab-button rounded-r-none px-6',
-          currentPage <= 1 ? 'cursor-not-allowed hover:text-white/70' : 'hover:bg-accent hover:text-black',
+          currentPage <= 1
+            ? 'cursor-not-allowed text-white/30 hover:text-white/30'
+            : 'hover:bg-accent hover:text-black',
         )}
       >
         {'<'}
       </button>
-      <span className="tab-button pointer-events-none w-16 rounded-none px-2 text-center">
+      <span className="tab-button pointer-events-none min-w-16 rounded-none px-2 text-center">
         <span className="text-accent">{currentPage}</span> / <span className="text-white/70">{totalPages}</span>
       </span>
       <button
@@ -38,7 +46,9 @@ const Pagination = ({ totalPages, currentPage, onPageChange }: PaginationProps) 
         disabled={currentPage === totalPages}
         className={cn(
           'tab-button rounded-l-none px-6',
-          currentPage >= totalPages ? 'cursor-not-allowed hover:text-white/70' : 'hover:bg-accent hover:text-black',
+          currentPage >= totalPages
+            ? 'cursor-not-allowed text-white/30 hover:text-white/30'
+            : 'hover:bg-accent hover:text-black',
         )}
       >
         {'>'}

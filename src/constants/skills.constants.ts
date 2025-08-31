@@ -42,6 +42,21 @@ export const SKILLS: Skill[] = [
     score: 50,
   },
   {
+    name: 'EthersJS',
+    icon: '/images/tech/ethers.png',
+    score: 60,
+  },
+  {
+    name: 'Wagmi',
+    icon: '/images/tech/wagmi.png',
+    score: 60,
+  },
+  {
+    name: 'Tenderly',
+    icon: '/images/tech/tenderly.png',
+    score: 40,
+  },
+  {
     name: 'Git',
     icon: '/images/tech/git.png',
     score: 80,

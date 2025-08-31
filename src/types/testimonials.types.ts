@@ -4,4 +4,5 @@ export type TestimonialType = {
   company: string;
   role: string;
   imageSrc: string;
+  linkedinUrl: string;
 };

@@ -15,31 +15,24 @@ body {
   padding: 0;
 }
 
-.background-image-1,
-.background-image-2 {
+.background-image {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
-  width: 100dvw;
-  height: 100dvh;
+  width: 100vw;
+  height: 100vh;
   background-image: url('/images/background.svg');
   background-size: cover;
   background-position: left;
   will-change: transform;
+  opacity: 0.18;
 }
 
-.background-image-1 {
-  transform: rotate(180deg);
-  opacity: 0.25;
-}
-
-.background-image-2 {
-  opacity: 0.15;
-}
-
-section {
-  width: 100dvw;
+@media (min-width: 2400px) {
+  section {
+    height: 75dvh;
+  }
 }
 
 @property --start {
@@ -51,40 +44,40 @@ section {
 @theme {
   --font-sans: 'Mona Sans', sans-serif;
   --color-accent: #2cfb97;
-  --num-skills: 12;
+  --num-skills: 15;
 }
 
 @layer utilities {
   .padding-x {
-    @apply px-5 md:px-12;
+    @apply px-2.5 md:px-6 xl:px-12;
   }
 }
 
 @layer components {
   .page {
-    @apply relative z-[3];
+    @apply relative z-[3] mx-auto w-full max-w-[200rem];
   }
 
   .canvas-container {
-    @apply fixed top-0 left-0 z-[2] h-full w-full;
+    @apply fixed bottom-0 left-1/2 z-[2] mx-auto h-full max-h-[100rem] w-full max-w-[200rem] -translate-x-1/2;
   }
 
   .arrow-button {
     @apply relative flex cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-accent/40 px-4 py-4 backdrop-blur-lg;
 
     .bg-circle {
-      @apply absolute top-1/2 -right-10 h-[120%] w-[120%] origin-center -translate-y-1/2 rounded-full bg-accent transition-all duration-500 group-hover:right-10 group-hover:size-10;
+      @apply absolute top-1/2 -right-6 h-[120%] w-[120%] origin-center -translate-y-1/2 rounded-full bg-accent transition-all duration-500 group-hover:right-6 group-hover:size-10 lg:-right-10 lg:group-hover:right-10;
     }
 
     .text {
-      @apply -translate-x-5 text-black uppercase transition-all duration-500 group-hover:-translate-x-5 group-hover:text-accent md:text-lg xl:translate-x-0;
+      @apply -translate-x-5 text-sm text-black uppercase transition-all duration-500 group-hover:-translate-x-5 group-hover:text-accent lg:translate-x-0 lg:text-lg;
     }
 
     .arrow-wrapper {
-      @apply absolute top-1/2 right-10 flex size-10 -translate-y-1/2 items-center justify-center overflow-hidden rounded-full group-hover:bg-accent;
+      @apply absolute top-1/2 right-6 flex size-10 -translate-y-1/2 items-center justify-center overflow-hidden rounded-full group-hover:bg-accent lg:right-10;
 
       img {
-        @apply size-5 translate-y-0 animate-bounce transition-all duration-500 group-hover:translate-y-0 xl:-translate-y-32;
+        @apply size-5 translate-y-0 animate-bounce transition-all duration-500 group-hover:translate-y-0 lg:-translate-y-32;
       }
     }
   }
@@ -105,7 +98,7 @@ section {
   }
 
   .hero-text {
-    @apply pointer-events-none relative z-10 flex w-full flex-col justify-center text-center text-[2rem] font-semibold md:text-[3rem] xl:text-8xl;
+    @apply pointer-events-none relative z-10 flex w-full flex-col justify-center text-center text-[2rem] font-semibold md:text-[3rem] xl:text-6xl 2xl:text-8xl;
     img {
       @apply size-8 object-contain md:size-10;
     }
@@ -116,15 +109,15 @@ section {
   }
 
   .simple-button {
-    @apply flex items-center justify-center rounded-full bg-accent px-6 py-4 text-black backdrop-blur-md transition-all duration-300 hover:bg-accent/70;
+    @apply flex items-center justify-center rounded-full bg-accent px-4 py-3 text-sm text-black backdrop-blur-md transition-all duration-300 hover:bg-accent/70 md:px-6 md:py-4 md:text-base;
   }
 
   .tab-button {
-    @apply cursor-pointer rounded-full px-8 py-3 text-sm text-white/70 transition-all duration-300 hover:text-white md:text-base;
+    @apply w-full cursor-pointer rounded-full px-4 py-1.5 text-sm text-white/70 transition-all duration-300 hover:text-white md:px-6 md:py-2.5 xl:px-8 xl:py-3;
   }
 
   .timeline-wrapper {
-    @apply absolute top-1/2 left-5 flex h-full -translate-y-1/2 justify-center md:left-10 xl:left-14;
+    @apply absolute top-1/2 left-10 flex h-full -translate-y-1/2 justify-center md:left-14;
   }
 
   .timeline {
@@ -141,6 +134,10 @@ section {
 
   .education-card-wrapper {
     @apply flex justify-end gap-10 xl:gap-20;
+  }
+
+  .link-hover {
+    @apply relative inline underline-offset-4 transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full;
   }
 }
 
@@ -171,11 +168,7 @@ section {
   mask-composite: subtract;
 }
 
-.work-experience-entry {
-  will-change: transform;
-  transform-style: preserve-3d;
-  transform: perspective(1000px) rotateY(10deg);
-}
+/* ------------------------------ Skills ------------------------------ */
 
 .skills-container-wrapper {
   position: relative;
@@ -190,30 +183,30 @@ section {
 
 .skills-container {
   position: relative;
-  width: 10rem;
-  height: 13rem;
+  width: 8rem;
+  height: 10rem;
   transform-style: preserve-3d;
   will-change: transform;
   contain: layout style;
-  transform: rotateY(0deg) perspective(1000px);
+  transform: rotateY(0deg) perspective(1400px);
 }
 
 .skill-card {
-  @apply flex flex-col items-center justify-between gap-3 p-4;
+  @apply flex flex-col items-center justify-between gap-1.5 p-4 xl:gap-3;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  min-height: 13rem;
+  min-height: 10rem;
   transform-origin: center;
   transform-style: preserve-3d;
-  transform: rotateY(calc(var(--i) * 360deg / var(--num-skills))) translateZ(31.25rem);
+  transform: rotateY(calc(var(--i) * 360deg / var(--num-skills))) translateZ(22rem);
   will-change: filter, transform;
   --facing: 1;
   --brightness: calc(0.7 + 0.3 * var(--facing));
-  background: #1a2725;
-  border: 0.125rem solid color-mix(in srgb, rgba(44, 251, 151, 0.5) calc(var(--facing) * 100%), transparent);
+  background: #232927;
+  border: 0.0625rem solid color-mix(in srgb, rgba(255, 255, 255, 0.2) calc(var(--facing) * 100%), transparent);
   border-radius: 1rem;
   --is-facing-point-four: calc(1 - abs(sign(var(--facing) - 0.4)));
   filter: brightness(var(--brightness)) blur(calc(var(--is-facing-point-four) * 4px));
@@ -236,8 +229,8 @@ section {
 
 .skill-progress-ring {
   position: relative;
-  width: 6.5rem;
-  height: 6.5rem;
+  width: 4.5rem;
+  height: 4.5rem;
 }
 
 .skill-progress-svg {
@@ -266,18 +259,17 @@ section {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 5rem;
-  height: 5rem;
+  width: 4.5rem;
+  height: 4.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .skill-icon {
-  width: 4.25rem;
-  height: 4.25rem;
+  width: 3rem;
+  height: 3rem;
   object-fit: contain;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .skill-level {
@@ -319,12 +311,40 @@ section {
   border-color: rgba(244, 114, 182, 0.3);
 }
 
+@media (min-width: 1280px) {
+  .skills-container {
+    width: 10rem;
+    height: 13rem;
+  }
+
+  .skill-card {
+    transform: rotateY(calc(var(--i) * 360deg / var(--num-skills))) translateZ(31.25rem);
+  }
+
+  .skill-progress-ring {
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+
+  .skill-icon-container {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .skill-icon {
+    width: 4.25rem;
+    height: 4.25rem;
+  }
+}
+
+/* ------------------------------ Testimonials ------------------------------ */
+
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(25rem, 1fr));
-  gap: 1.5rem;
-  width: calc(100% - 1.25rem);
-  max-width: max-content;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 120rem;
   place-items: center;
   height: max-content;
 }
@@ -333,19 +353,15 @@ section {
   opacity: 1;
 }
 
-.testimonials-grid .glowing-card:nth-child(3n + 2) {
-  translate: 0 1rem;
-}
-
 .glowing-card {
-  background-color: #1a2725;
+  background-color: #232927;
   border-radius: 1rem;
-  cursor: pointer;
   display: flex;
-  height: 16rem;
+  height: 18rem;
   flex-direction: column;
   position: relative;
-  width: 25rem;
+  width: 100%;
+  box-shadow: inset 0 0 0 0.0625rem rgba(255, 255, 255, 0.2);
 }
 
 .glowing-card:hover::before {
@@ -380,14 +396,29 @@ section {
 }
 
 .glowing-card > .glowing-card-content {
-  background-color: #1a2725;
+  background-color: #232927;
   border-radius: inherit;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  inset: 0.125rem;
-  padding: 1rem;
+  inset: 0.0625rem;
+  padding: 0.75rem;
   position: absolute;
-  border: 0.0625rem solid rgba(255, 255, 255, 0.2);
-  z-index: 2;
+  z-index: 3;
+}
+
+@media (min-width: 768px) {
+  .glowing-card {
+    height: 20rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .glowing-card > .glowing-card-content {
+    padding: 1rem;
+  }
 }

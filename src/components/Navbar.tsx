@@ -14,7 +14,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="padding-x absolute top-0 left-0 z-20 flex w-full items-center justify-between pt-12 pb-6">
+    <header className="padding-x absolute top-0 left-0 z-20 flex w-full items-center justify-between pt-6 pb-4 md:pt-12 md:pb-6">
       <div className="flex items-center gap-x-20 xl:gap-x-40">
         <Logo />
 

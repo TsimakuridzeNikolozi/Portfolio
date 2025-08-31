@@ -75,22 +75,30 @@ const Education = () => {
   }, [paginatedEducation]);
 
   return (
-    <section id="education" className="mx-6 flex w-1/2 max-w-4xl flex-col gap-y-8">
-      <div className="flex items-center justify-between gap-x-4">
-        <Tabs
-          tabs={[EducationCategory.CERTIFICATIONS, EducationCategory.GENERAL]}
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-        />
+    <section id="education" className="padding-x">
+      <div className="flex max-w-4xl flex-col gap-y-4 md:gap-y-8 lg:w-1/2">
+        <div className="flex w-full flex-col flex-wrap items-center justify-between gap-x-4 gap-y-2 min-[30rem]:flex-row">
+          <Tabs
+            tabs={[EducationCategory.CERTIFICATIONS, EducationCategory.GENERAL]}
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+            className="w-full min-[30rem]:w-max"
+          />
 
-        <Pagination totalPages={totalPages} currentPage={currentPage} onPageChange={setCurrentPage} />
+          <Pagination
+            totalPages={totalPages}
+            currentPage={currentPage}
+            onPageChange={setCurrentPage}
+            className="w-full min-[30rem]:w-max"
+          />
+        </div>
+
+        <GlassCard className="relative flex flex-col items-center gap-y-2 px-4 md:gap-y-4 xl:gap-y-6">
+          {paginatedEducation.map((education) => (
+            <EducationEntry key={education.school + education.degree} education={education} />
+          ))}
+        </GlassCard>
       </div>
-
-      <GlassCard className="relative flex flex-col items-center gap-6 px-4">
-        {paginatedEducation.map((education) => (
-          <EducationEntry key={education.school + education.degree} education={education} />
-        ))}
-      </GlassCard>
     </section>
   );
 };

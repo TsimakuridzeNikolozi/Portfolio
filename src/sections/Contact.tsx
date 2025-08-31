@@ -3,8 +3,11 @@ import { World } from '../components/World';
 import { globeArcs, globeConfig } from '../constants/globe.constants';
 import GlassCard from '../components/reusable/GlassCard';
 import toast from 'react-hot-toast';
+import { useResponsive } from '../hooks/useResponsive';
 
 const Contact = () => {
+  const { isMobile } = useResponsive();
+
   const formRef = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
@@ -54,11 +57,14 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="flex h-dvh w-full items-center justify-center gap-x-16 px-16">
-      <GlassCard className="!h-fit rounded-xl p-10">
+    <section
+      id="contact"
+      className="padding-x grid h-max w-full grid-cols-1 place-items-center gap-x-4 py-6 md:grid-cols-2 xl:gap-x-16 xl:py-12"
+    >
+      <GlassCard className="!h-fit max-w-[60rem] rounded-xl p-4 md:p-6 xl:p-10">
         <form ref={formRef} onSubmit={handleSubmit} className="flex w-full flex-col gap-7">
           <div className="flex flex-col gap-2">
-            <label htmlFor="name" className="text-sm font-medium tracking-wide text-white/80 uppercase">
+            <label htmlFor="name" className="text-xs font-medium tracking-wide text-white/80 uppercase md:text-sm">
               Your name
             </label>
             <input
@@ -69,13 +75,13 @@ const Contact = () => {
               value={form.name}
               onChange={handleChange}
               placeholder="What's your name?"
-              className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white backdrop-blur-sm transition-all duration-300 placeholder:text-white/40 hover:border-white/20 hover:bg-white/8 focus:border-accent/50 focus:bg-white/10 focus:ring-2 focus:ring-accent/20 focus:outline-none"
+              className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white backdrop-blur-sm transition-all duration-300 placeholder:text-white/40 hover:border-white/20 hover:bg-white/8 focus:border-accent/50 focus:bg-white/10 focus:ring-2 focus:ring-accent/20 focus:outline-none xl:text-base"
               required
             />
           </div>
 
           <div className="flex flex-col gap-2">
-            <label htmlFor="email" className="text-sm font-medium tracking-wide text-white/80 uppercase">
+            <label htmlFor="email" className="text-xs font-medium tracking-wide text-white/80 uppercase md:text-sm">
               Your Email
             </label>
             <input
@@ -86,13 +92,13 @@ const Contact = () => {
               value={form.email}
               onChange={handleChange}
               placeholder="What's your email address?"
-              className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white backdrop-blur-sm transition-all duration-300 placeholder:text-white/40 hover:border-white/20 hover:bg-white/8 focus:border-accent/50 focus:bg-white/10 focus:ring-2 focus:ring-accent/20 focus:outline-none"
+              className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white backdrop-blur-sm transition-all duration-300 placeholder:text-white/40 hover:border-white/20 hover:bg-white/8 focus:border-accent/50 focus:bg-white/10 focus:ring-2 focus:ring-accent/20 focus:outline-none xl:text-base"
               required
             />
           </div>
 
           <div className="flex flex-col gap-2">
-            <label htmlFor="message" className="text-sm font-medium tracking-wide text-white/80 uppercase">
+            <label htmlFor="message" className="text-xs font-medium tracking-wide text-white/80 uppercase md:text-sm">
               Your Message
             </label>
             <textarea
@@ -102,7 +108,7 @@ const Contact = () => {
               onChange={handleChange}
               placeholder="How can I help you?"
               rows={5}
-              className="w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white backdrop-blur-sm transition-all duration-300 placeholder:text-white/40 hover:border-white/20 hover:bg-white/8 focus:border-accent/50 focus:bg-white/10 focus:ring-2 focus:ring-accent/20 focus:outline-none"
+              className="w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white backdrop-blur-sm transition-all duration-300 placeholder:text-white/40 hover:border-white/20 hover:bg-white/8 focus:border-accent/50 focus:bg-white/10 focus:ring-2 focus:ring-accent/20 focus:outline-none xl:text-base"
               required
             />
           </div>
@@ -116,11 +122,13 @@ const Contact = () => {
           </button>
         </form>
       </GlassCard>
-      <div className="h-full max-h-[32rem] min-h-96 w-full">
-        <div className="h-full w-full overflow-hidden rounded-3xl hover:cursor-grab">
-          <World globeConfig={globeConfig} data={globeArcs} />
+      {!isMobile && (
+        <div className="h-full max-h-[20rem] w-full xl:max-h-[32rem] xl:min-h-96">
+          <div className="h-full w-full overflow-hidden rounded-3xl hover:cursor-grab">
+            <World globeConfig={globeConfig} data={globeArcs} />
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 };

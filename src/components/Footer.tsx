@@ -2,6 +2,7 @@ import Socials from './Socials';
 import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { useResponsive } from '../hooks/useResponsive';
 
 const FooterLink = () => {
   const linkRef = useRef<HTMLAnchorElement>(null);
@@ -41,19 +42,26 @@ const FooterLink = () => {
       ref={linkRef}
       href="#hero"
       aria-label="Scroll to top of page"
-      className="flex w-fit items-center gap-x-2 rounded-full border border-accent/20 p-1.5 transition-all duration-300 hover:backdrop-blur-lg"
+      className="flex w-fit items-center gap-x-2 rounded-full border border-accent/40 p-1.5 transition-all duration-300 hover:backdrop-blur-lg"
     >
-      <img ref={iconRef} src="/images/curved-arrow.svg" alt="Scroll to top arrow" className="size-7" />
+      <img ref={iconRef} src="/images/curved-arrow.svg" alt="Scroll to top arrow" className="size-5 lg:size-7" />
     </a>
   );
 };
 
 const Footer = () => {
+  const { isMobile } = useResponsive();
+
   return (
-    <footer id="footer" className="padding-x relative grid w-full grid-cols-3 py-6">
-      <FooterLink />
+    <footer
+      id="footer"
+      className="padding-x relative grid w-full grid-rows-2 place-items-center py-6 md:grid-cols-3 md:grid-rows-none md:place-items-stretch"
+    >
+      {!isMobile && <FooterLink />}
       <Socials />
-      <p className="text-end text-white md:text-end">© {new Date().getFullYear()} Nikolozi Tsimakuridze.</p>
+      <p className="text-end text-xs text-white md:text-end md:text-sm lg:text-base">
+        © {new Date().getFullYear()} Nikolozi Tsimakuridze.
+      </p>
     </footer>
   );
 };

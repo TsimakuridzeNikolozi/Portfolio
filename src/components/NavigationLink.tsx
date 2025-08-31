@@ -71,8 +71,8 @@ const NavigationLink = memo(({ link }: NavigationLinkProps) => {
           className="absolute inset-0 rounded-full bg-accent/20 backdrop-blur-lg"
         />
       )}
-      <img ref={iconRef} src={link.icon} alt={link.label} className="w-5" />
-      <span className="z-10">{link.label}</span>
+      <img ref={iconRef} src={link.icon} alt={link.label} className="w-4 xl:w-5" />
+      <span className="z-10 text-sm xl:text-base">{link.label}</span>
     </a>
   );
 });

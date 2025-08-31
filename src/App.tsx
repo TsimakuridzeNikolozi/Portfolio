@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Hero from './sections/Hero';
@@ -9,15 +9,16 @@ import { useHeaderAnimation } from './hooks/useHeaderAnimation';
 import SuspenseSpinner from './components/reusable/SuspenseSpinner';
 import Testimonials from './sections/Testimonials';
 import { useGlowingCard } from './hooks/useGlowingCard';
-
-const Contact = lazy(() => import('./sections/Contact'));
-const Education = lazy(() => import('./sections/Education'));
-const Skills = lazy(() => import('./sections/Skills'));
-const WorkExperience = lazy(() => import('./sections/WorkExperience'));
+import { useResize } from './hooks/useResize';
+import Contact from './sections/Contact';
+import Education from './sections/Education';
+import Skills from './sections/Skills';
+import WorkExperience from './sections/WorkExperience';
 
 const App = () => {
   useHeaderAnimation();
   useGlowingCard();
+  useResize();
 
   return (
     <div className="page">
@@ -35,7 +36,7 @@ const App = () => {
           id="education-header"
           primary="Education/Certifications"
           secondary="Academic Achievements"
-          className="mx-6 w-fit"
+          className="padding-x lg:w-fit"
         />
       </TransitionSection>
       <Suspense fallback={<SuspenseSpinner />}>
