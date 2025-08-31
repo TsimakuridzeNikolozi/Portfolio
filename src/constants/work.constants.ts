@@ -4,7 +4,7 @@ export const WORK_EXPERIENCE: WorkExperienceType[] = [
   {
     overview:
       'Gained fast-paced startup experience, rapidly advancing from Junior Developer to fulfilling Senior Developer role by consistently taking ownership, delivering under pressure, working overtime, and driving product growth.',
-    logoPath: '/images/hinkal-logo.png',
+    logoPath: '/images/work-experience/hinkal-logo.webp',
     title: 'Full-Stack Web3 Developer',
     company: 'Hinkal Protocol',
     date: '2023 - 2025',

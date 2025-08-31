@@ -6,7 +6,7 @@ export const EDUCATION: EducationType[] = [
     school: 'Komarovi Physics and Mathematics School',
     degree: 'High School Diploma',
     date: '2014 - 2020',
-    logoPath: '/images/education/komarovi-logo.png',
+    logoPath: '/images/education/komarovi-logo.webp',
     websiteLink: 'https://komarovi.edu.ge/',
   },
   {
@@ -14,7 +14,7 @@ export const EDUCATION: EducationType[] = [
     school: 'Mziuri Collage',
     degree: 'Programming Basics and C++',
     date: '2018-2020',
-    logoPath: '/images/education/mziuri-logo.png',
+    logoPath: '/images/education/mziuri-logo.webp',
     websiteLink: 'https://www.mziuri.ge/',
   },
   {
@@ -22,7 +22,7 @@ export const EDUCATION: EducationType[] = [
     school: 'Free University of Tbilisi',
     degree: 'Computer Science and Mathematics (Bachelor)',
     date: '2020 - Present',
-    logoPath: '/images/education/freeuni-logo.png',
+    logoPath: '/images/education/freeuni-logo.webp',
     websiteLink: 'https://freeuni.edu.ge/',
   },
   {
@@ -40,7 +40,7 @@ export const EDUCATION: EducationType[] = [
     degree: 'Blockchain Developer - Ethereum',
     certificateLink: 'https://drive.google.com/file/d/1qxP2r2w6wskiWN8iOLb-2l9dLIjs_qzf/view?usp=sharing',
     date: '2023',
-    logoPath: '/images/education/bta-logo.png',
+    logoPath: '/images/education/bta-logo.webp',
     websiteLink: 'https://blockchaintrainingalliance.com/',
   },
   {
@@ -49,7 +49,7 @@ export const EDUCATION: EducationType[] = [
     degree: 'Blockchain Development',
     certificateLink: 'https://drive.google.com/file/d/1oltkp8v3VUO8HX6hsZrGstoAjNWK0MV2/view?usp=sharing',
     date: '2023',
-    logoPath: '/images/education/new-horizons-logo.png',
+    logoPath: '/images/education/new-horizons-logo.webp',
     websiteLink: 'https://www.newhorizons.com/',
   },
   {
@@ -58,7 +58,7 @@ export const EDUCATION: EducationType[] = [
     degree: 'React Development',
     certificateLink: 'https://drive.google.com/file/d/1oSHynB7OPYA9vA1wK53x56ld5cQ8wWJY/view?usp=sharing',
     date: '2024',
-    logoPath: '/images/education/ol-academy-logo.png',
+    logoPath: '/images/education/ol-academy-logo.webp',
     websiteLink: 'https://www.olacademy.ge/',
   },
   {
@@ -67,7 +67,7 @@ export const EDUCATION: EducationType[] = [
     degree: 'Back-end Programming',
     certificateLink: 'https://drive.google.com/file/d/1jzVUWnNvXph2hE86wspF9wQ486Vwp0nd/view?usp=sharing',
     date: '2022',
-    logoPath: '/images/education/new-horizons-logo.png',
+    logoPath: '/images/education/new-horizons-logo.webp',
     websiteLink: 'https://www.newhorizons.com/',
   },
 ];

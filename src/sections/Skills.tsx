@@ -120,7 +120,7 @@ const Skills = () => {
       </div>
 
       <div className="mt-10 flex flex-col items-center justify-center gap-y-2 xl:mt-20">
-        <img src="/images/drag-indicator.png" alt="drag-indicator" className="size-8 animate-pulse" />
+        <img src="/images/drag-indicator.webp" alt="drag-indicator" className="size-8 animate-pulse" />
         <p className="text-sm text-white/70">Drag to scroll</p>
       </div>
     </section>
