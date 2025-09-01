@@ -38,8 +38,8 @@ const WorkExperienceEntryHeader = ({ workExperience }: WorkExperienceEntryHeader
             }}
             className="inline-block size-4 3xl:size-6"
           >
-            <g stroke-width="0" />
-            <g stroke-linecap="round" />
+            <g strokeWidth="0" />
+            <g strokeLinecap="round" />
             <path style={{ fill: 'none' }} d="M-896 0H384v800H-896z" />
             <path
               fill="currentColor"

@@ -3,12 +3,11 @@ import { NavigationLinkType } from '../types';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { motion } from 'motion/react';
+import { smoothScrollTo } from '../utils/smoothScroll';
 
 interface NavigationLinkProps {
   link: NavigationLinkType;
 }
-
-const SCROLL_OFFSET = 200;
 
 const NavigationLink = memo(({ link }: NavigationLinkProps) => {
   const linkRef = useRef<HTMLAnchorElement>(null);
@@ -47,11 +46,7 @@ const NavigationLink = memo(({ link }: NavigationLinkProps) => {
     const targetId = link.href.replace('#', '');
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
-      const top = targetElement.getBoundingClientRect().top + window.pageYOffset - SCROLL_OFFSET;
-      window.scrollTo({
-        top: top,
-        behavior: 'smooth',
-      });
+      smoothScrollTo(targetElement);
     }
   };
 
@@ -59,7 +54,6 @@ const NavigationLink = memo(({ link }: NavigationLinkProps) => {
     <a
       ref={linkRef}
       className="relative flex items-center gap-x-2 px-4 py-2 text-white transition-all duration-300 hover:text-accent 3xl:gap-x-3 3xl:px-6 3xl:py-3"
-      href={link.href}
       onClick={handleClick}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}

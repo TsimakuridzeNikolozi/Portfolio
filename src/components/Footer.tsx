@@ -3,10 +3,18 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { useResponsive } from '../hooks/useResponsive';
+import { smoothScrollTo } from '../utils/smoothScroll';
 
 const FooterLink = () => {
   const linkRef = useRef<HTMLAnchorElement>(null);
   const iconRef = useRef<HTMLImageElement>(null);
+
+  const onButtonClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    smoothScrollTo('#hero', {
+      duration: 1,
+    });
+  };
 
   useGSAP(() => {
     const tl = gsap.timeline({ paused: true });
@@ -40,7 +48,7 @@ const FooterLink = () => {
   return (
     <a
       ref={linkRef}
-      href="#hero"
+      onClick={onButtonClick}
       aria-label="Scroll to top of page"
       className="flex w-fit items-center gap-x-2 rounded-full border border-accent/40 p-1.5 transition-all duration-300 hover:backdrop-blur-lg"
     >
