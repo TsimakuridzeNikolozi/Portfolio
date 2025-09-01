@@ -31,7 +31,7 @@ body {
 
 @media (min-width: 2400px) {
   section {
-    height: 75dvh;
+    height: 65dvh;
   }
 }
 
@@ -45,6 +45,7 @@ body {
   --font-sans: 'Mona Sans', sans-serif;
   --color-accent: #2cfb97;
   --num-skills: 15;
+  --breakpoint-3xl: 150rem;
 }
 
 @layer utilities {
@@ -63,21 +64,21 @@ body {
   }
 
   .arrow-button {
-    @apply relative flex cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-accent/40 px-4 py-4 backdrop-blur-lg;
+    @apply relative flex h-12 w-60 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-accent/40 p-4 backdrop-blur-lg lg:h-16 lg:w-80 3xl:h-24 3xl:w-120 3xl:p-6;
 
     .bg-circle {
-      @apply absolute top-1/2 -right-6 h-[120%] w-[120%] origin-center -translate-y-1/2 rounded-full bg-accent transition-all duration-500 group-hover:right-6 group-hover:size-10 lg:-right-10 lg:group-hover:right-10;
+      @apply absolute top-1/2 -right-6 h-[120%] w-[120%] origin-center -translate-y-1/2 rounded-full bg-accent transition-all duration-500 group-hover:right-6 group-hover:size-10 lg:-right-10 lg:group-hover:right-10 3xl:-right-16 3xl:group-hover:right-16;
     }
 
     .text {
-      @apply -translate-x-5 text-sm text-black uppercase transition-all duration-500 group-hover:-translate-x-5 group-hover:text-accent lg:translate-x-0 lg:text-lg;
+      @apply -translate-x-5 text-sm text-black uppercase transition-all duration-500 group-hover:-translate-x-5 group-hover:text-accent lg:translate-x-0 lg:text-lg 3xl:text-3xl;
     }
 
     .arrow-wrapper {
-      @apply absolute top-1/2 right-6 flex size-10 -translate-y-1/2 items-center justify-center overflow-hidden rounded-full group-hover:bg-accent lg:right-10;
+      @apply absolute top-1/2 right-6 flex size-10 -translate-y-1/2 items-center justify-center overflow-hidden rounded-full group-hover:bg-accent lg:right-10 3xl:right-16 3xl:size-12;
 
       img {
-        @apply size-5 translate-y-0 animate-bounce transition-all duration-500 group-hover:translate-y-0 lg:-translate-y-32;
+        @apply size-5 translate-y-0 animate-bounce transition-all duration-500 group-hover:translate-y-0 lg:-translate-y-32 3xl:size-7;
       }
     }
   }
@@ -98,7 +99,7 @@ body {
   }
 
   .hero-text {
-    @apply pointer-events-none relative z-10 flex w-full flex-col justify-center text-center text-[2rem] font-semibold md:text-[3rem] xl:text-6xl 2xl:text-8xl;
+    @apply pointer-events-none relative z-10 flex w-full flex-col justify-center text-center text-[2rem] font-semibold md:text-[3rem] xl:text-6xl 2xl:text-8xl 3xl:text-[10rem];
     img {
       @apply size-8 object-contain md:size-10;
     }
@@ -109,27 +110,27 @@ body {
   }
 
   .simple-button {
-    @apply flex items-center justify-center rounded-full bg-accent px-4 py-3 text-sm text-black backdrop-blur-md transition-all duration-300 hover:bg-accent/70 md:px-6 md:py-4 md:text-base;
+    @apply flex items-center justify-center rounded-full bg-accent px-4 py-3 text-sm text-black backdrop-blur-md transition-all duration-300 hover:bg-accent/70 md:px-6 md:py-4 md:text-base 3xl:text-2xl;
   }
 
   .tab-button {
-    @apply w-full cursor-pointer rounded-full px-4 py-1.5 text-sm text-white/70 transition-all duration-300 hover:text-white md:px-6 md:py-2.5 xl:px-8 xl:py-3;
+    @apply w-full cursor-pointer rounded-full px-4 py-1.5 text-sm text-white/70 transition-all duration-300 hover:text-white md:px-6 md:py-2.5 xl:px-8 xl:py-3 xl:text-lg 3xl:px-10 3xl:py-4 3xl:text-2xl;
   }
 
   .timeline-wrapper {
-    @apply absolute top-1/2 left-10 flex h-full -translate-y-1/2 justify-center md:left-14;
+    @apply absolute top-1/2 left-10 flex h-full -translate-y-1/2 justify-center md:left-14 3xl:left-18;
   }
 
   .timeline {
-    @apply absolute z-10 h-full w-0.5 bg-black;
+    @apply absolute z-10 h-full w-0.5 bg-black 3xl:w-1;
   }
 
   .timeline-logo-wrapper {
-    @apply absolute top-1/2 left-0 size-12 -translate-y-1/2 rounded-full border-2 bg-transparent opacity-0 md:size-[5.125rem];
+    @apply absolute top-1/2 left-0 size-12 -translate-y-1/2 rounded-full border-2 bg-transparent opacity-0 md:size-[5.125rem] 3xl:size-28 3xl:border-4;
   }
 
   .timeline-logo {
-    @apply flex size-12 flex-none items-center justify-center rounded-full bg-black p-1 md:size-[5.125rem];
+    @apply flex size-12 flex-none items-center justify-center rounded-full bg-black p-1 md:size-[5.125rem] 3xl:size-28;
   }
 
   .education-card-wrapper {
@@ -138,6 +139,14 @@ body {
 
   .link-hover {
     @apply relative inline underline-offset-4 transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full;
+  }
+
+  .input-label {
+    @apply text-xs font-medium tracking-wide text-white/80 uppercase md:text-sm 3xl:text-lg;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white backdrop-blur-sm transition-all duration-300 placeholder:text-white/40 hover:border-white/20 hover:bg-white/8 focus:border-accent/50 focus:bg-white/10 focus:ring-2 focus:ring-accent/20 focus:outline-none xl:text-base 3xl:text-xl;
   }
 }
 
@@ -217,7 +226,7 @@ body {
 }
 
 .skill-name {
-  @apply text-center text-sm font-medium text-white;
+  @apply text-center text-sm font-medium text-white 3xl:text-xl;
   font-weight: 600;
   letter-spacing: 0.03125rem;
 }
@@ -273,7 +282,7 @@ body {
 }
 
 .skill-level {
-  @apply rounded-full px-2 py-1 text-xs font-medium;
+  @apply rounded-full px-2 py-1 text-xs font-medium 3xl:text-xl;
   text-transform: uppercase;
   letter-spacing: 0.03125rem;
   font-size: 0.625rem;
@@ -337,6 +346,32 @@ body {
   }
 }
 
+@media (min-width: 2400px) {
+  .skills-container {
+    width: 12rem;
+    height: 16rem;
+  }
+
+  .skill-card {
+    transform: rotateY(calc(var(--i) * 360deg / var(--num-skills))) translateZ(40rem);
+  }
+
+  .skill-progress-ring {
+    width: 8.5rem;
+    height: 8.5rem;
+  }
+
+  .skill-icon-container {
+    width: 7.5rem;
+    height: 7.5rem;
+  }
+
+  .skill-icon {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+}
+
 /* ------------------------------ Testimonials ------------------------------ */
 
 .testimonials-grid {
@@ -344,7 +379,7 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   gap: 0.75rem;
   width: 100%;
-  max-width: 120rem;
+  max-width: 135rem;
   place-items: center;
   height: max-content;
 }
@@ -420,5 +455,11 @@ body {
 
   .glowing-card > .glowing-card-content {
     padding: 1rem;
+  }
+}
+
+@media (min-width: 2400px) {
+  .glowing-card {
+    height: 25rem;
   }
 }

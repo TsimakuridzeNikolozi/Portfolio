@@ -7,15 +7,17 @@ import { useResponsive } from '../hooks/useResponsive';
 gsap.registerPlugin(ScrollTrigger);
 
 export const useHeaderAnimation = () => {
-  const { isDesktop } = useResponsive();
+  const { isDesktop, is3XLDesktop } = useResponsive();
 
   useGSAP(() => {
     if (!isDesktop) return;
 
+    const offset = is3XLDesktop ? '320px' : '200px';
+
     const workExperienceTrigger = ScrollTrigger.create({
       trigger: '#hero-to-work-experience',
       start: 'top top',
-      end: 'top 200px',
+      end: `top ${offset}`,
       endTrigger: '#work-experience',
       scrub: true,
       pin: '#work-experience-header',
@@ -25,7 +27,7 @@ export const useHeaderAnimation = () => {
     const educationTrigger = ScrollTrigger.create({
       trigger: '#work-experience-to-education',
       start: 'top top',
-      end: 'top 200px',
+      end: `top ${offset}`,
       endTrigger: '#education',
       scrub: true,
       pin: '#education-header',
@@ -35,7 +37,7 @@ export const useHeaderAnimation = () => {
     const skillsTrigger = ScrollTrigger.create({
       trigger: '#education-to-skills',
       start: 'top top',
-      end: 'top 200px',
+      end: `top ${offset}`,
       endTrigger: '#skills',
       scrub: true,
       pin: '#skills-header',
@@ -45,7 +47,7 @@ export const useHeaderAnimation = () => {
     const testimonialsTrigger = ScrollTrigger.create({
       trigger: '#skills-to-testimonials',
       start: 'top top',
-      end: 'top 200px',
+      end: `top ${offset}`,
       endTrigger: '#testimonials',
       scrub: true,
       pin: '#testimonials-header',
@@ -55,7 +57,7 @@ export const useHeaderAnimation = () => {
     const contactTrigger = ScrollTrigger.create({
       trigger: '#testimonials-to-contact',
       start: 'top top',
-      end: 'top 200px',
+      end: `top ${offset}`,
       endTrigger: '#contact',
       scrub: true,
       pin: '#contact-header',
@@ -76,5 +78,5 @@ export const useHeaderAnimation = () => {
       testimonialsTrigger.kill();
       contactTrigger.kill();
     };
-  }, [isDesktop]);
+  }, [isDesktop, is3XLDesktop]);
 };

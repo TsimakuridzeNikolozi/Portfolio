@@ -12,7 +12,7 @@ const EducationEntry = ({ education }: EducationEntryProps) => {
       <div className="flex w-full">
         <div className="timeline-wrapper">
           <div className="timeline" />
-          <div className="w-0.5 bg-accent" />
+          <div className="w-0.5 bg-accent 3xl:w-1" />
         </div>
         <div className="relative z-20 flex w-full items-center justify-end gap-5 md:gap-10 xl:gap-12">
           <div className={cn('timeline-logo-wrapper', 'border-accent')}></div>

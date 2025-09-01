@@ -44,7 +44,12 @@ const FooterLink = () => {
       aria-label="Scroll to top of page"
       className="flex w-fit items-center gap-x-2 rounded-full border border-accent/40 p-1.5 transition-all duration-300 hover:backdrop-blur-lg"
     >
-      <img ref={iconRef} src="/images/curved-arrow.svg" alt="Scroll to top arrow" className="size-5 lg:size-7" />
+      <img
+        ref={iconRef}
+        src="/images/curved-arrow.svg"
+        alt="Scroll to top arrow"
+        className="size-5 lg:size-7 3xl:size-10"
+      />
     </a>
   );
 };
@@ -59,7 +64,7 @@ const Footer = () => {
     >
       {!isMobile && <FooterLink />}
       <Socials />
-      <p className="text-end text-xs text-white md:text-end md:text-sm lg:text-base">
+      <p className="text-end text-xs text-white md:text-end md:text-sm lg:text-base 3xl:text-2xl">
         © {new Date().getFullYear()} Nikolozi Tsimakuridze.
       </p>
     </footer>

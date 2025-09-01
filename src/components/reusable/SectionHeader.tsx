@@ -17,14 +17,14 @@ const SectionHeader = memo(({ primary, secondary, className, ...props }: Section
       )}
     >
       <TextType
-        className="rounded-full bg-white/15 px-2 py-1 text-sm backdrop-blur-lg md:px-3 md:py-1.5 md:text-base xl:text-xl"
+        className="rounded-full bg-white/15 px-2 py-1 text-sm backdrop-blur-lg md:px-3 md:py-1.5 md:text-base xl:text-xl 3xl:text-2xl"
         loop={false}
         text={secondary}
         gradientText
         startOnVisible
         showCursor={false}
       />
-      <h2 className="text-[1.75rem] font-bold md:text-4xl xl:text-5xl 2xl:text-7xl">{primary}</h2>
+      <h2 className="text-[1.75rem] font-bold md:text-4xl xl:text-5xl 2xl:text-7xl 3xl:text-[7rem]">{primary}</h2>
     </div>
   );
 });

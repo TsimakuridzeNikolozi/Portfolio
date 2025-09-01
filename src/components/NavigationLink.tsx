@@ -58,7 +58,7 @@ const NavigationLink = memo(({ link }: NavigationLinkProps) => {
   return (
     <a
       ref={linkRef}
-      className="relative flex items-center gap-x-2 px-4 py-2 text-white transition-all duration-300 hover:text-accent"
+      className="relative flex items-center gap-x-2 px-4 py-2 text-white transition-all duration-300 hover:text-accent 3xl:gap-x-3 3xl:px-6 3xl:py-3"
       href={link.href}
       onClick={handleClick}
       onMouseEnter={() => setHovering(true)}
@@ -71,8 +71,8 @@ const NavigationLink = memo(({ link }: NavigationLinkProps) => {
           className="absolute inset-0 rounded-full bg-accent/20 backdrop-blur-lg"
         />
       )}
-      <img ref={iconRef} src={link.icon} alt={link.label} className="w-4 xl:w-5" />
-      <span className="z-10 text-sm xl:text-base">{link.label}</span>
+      <img ref={iconRef} src={link.icon} alt={link.label} className="w-4 xl:w-5 3xl:w-6" />
+      <span className="z-10 text-sm xl:text-base 3xl:text-2xl">{link.label}</span>
     </a>
   );
 });

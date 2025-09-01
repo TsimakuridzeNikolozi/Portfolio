@@ -6,6 +6,7 @@ interface ResponsiveContextType {
   isDesktop: boolean;
   isXLDesktop: boolean;
   is2XLDesktop: boolean;
+  is3XLDesktop: boolean;
 }
 
 export const ResponsiveContext = createContext<ResponsiveContextType>({
@@ -14,4 +15,5 @@ export const ResponsiveContext = createContext<ResponsiveContextType>({
   isDesktop: false,
   isXLDesktop: false,
   is2XLDesktop: false,
+  is3XLDesktop: false,
 });

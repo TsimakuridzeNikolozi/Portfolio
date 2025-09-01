@@ -11,19 +11,19 @@ const WorkExperienceEntryHeader = ({ workExperience }: WorkExperienceEntryHeader
         <img
           src={workExperience.logoPath}
           alt={workExperience.title.concat(' Logo')}
-          className="h-10 w-12 md:h-16 md:w-20"
+          className="h-10 w-12 md:h-16 md:w-20 3xl:h-24 3xl:w-28"
         />
       </div>
 
       <div className="min-w-0 flex-1">
-        <h2 className="work-experience-title text-sm leading-tight font-bold text-white sm:text-3xl md:text-base xl:text-2xl">
+        <h2 className="work-experience-title text-sm leading-tight font-bold text-white sm:text-3xl md:text-base xl:text-2xl 3xl:mb-2 3xl:text-3xl">
           {workExperience.title}
         </h2>
         <a
           href={workExperience.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="link-hover mb-1 flex w-fit items-center gap-1 text-base text-accent/80 md:mb-2 md:text-lg md:font-medium"
+          className="link-hover mb-1 flex w-fit items-center gap-1 text-base text-accent/80 md:mb-2 md:text-lg md:font-medium 3xl:mb-3 3xl:text-2xl"
         >
           {workExperience.company}
           <svg
@@ -35,10 +35,8 @@ const WorkExperienceEntryHeader = ({ workExperience }: WorkExperienceEntryHeader
               clipRule: 'evenodd',
               strokeLinejoin: 'round',
               strokeMiterlimit: 2,
-              width: '1rem',
-              height: '1rem',
-              display: 'inline-block',
             }}
+            className="inline-block size-4 3xl:size-6"
           >
             <g stroke-width="0" />
             <g stroke-linecap="round" />
@@ -55,7 +53,7 @@ const WorkExperienceEntryHeader = ({ workExperience }: WorkExperienceEntryHeader
         </a>
         <div className="work-experience-period flex items-center gap-2 text-gray-300">
           <img src="/images/calendar.svg" alt="Calendar" className="h-4 w-4" />
-          <span className="text-sm md:text-base md:font-medium">{workExperience.date}</span>
+          <span className="text-sm md:text-base md:font-medium 3xl:text-xl">{workExperience.date}</span>
         </div>
       </div>
     </div>

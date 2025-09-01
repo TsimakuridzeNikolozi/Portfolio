@@ -62,12 +62,15 @@ const HeroHeader = () => {
   }, [isDesktop]);
 
   return (
-    <header id="hero-header" className="padding-x relative flex w-screen flex-col justify-center py-16 md:w-full">
+    <header
+      id="hero-header"
+      className="padding-x relative flex w-screen flex-col justify-center py-16 md:w-full 3xl:py-24"
+    >
       <div className="flex flex-col items-center gap-y-4 xl:gap-y-7">
         <TextType
           id="hero-phrase"
           text={phrases}
-          className="text-center text-sm md:text-[1rem] xl:text-xl"
+          className="text-center text-sm md:text-[1rem] xl:text-xl 3xl:text-3xl"
           gradientText
         />
         <div className="hero-text">
@@ -79,7 +82,7 @@ const HeroHeader = () => {
           </h1>
         </div>
 
-        <ArrowButton text="See My Resume" className="h-12 w-60 lg:h-16 lg:w-80" onClick={downloadResumeClick} />
+        <ArrowButton text="See My Resume" onClick={downloadResumeClick} />
       </div>
     </header>
   );

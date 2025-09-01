@@ -11,10 +11,10 @@ import * as THREE from 'three';
 gsap.registerPlugin(ScrollTrigger);
 
 const HeroExperience = () => {
-  const { isDesktop, isXLDesktop, is2XLDesktop } = useResponsive();
+  const { isDesktop, isXLDesktop, is2XLDesktop, is3XLDesktop } = useResponsive();
   const [meshGroup, setMeshGroup] = useState<THREE.Group | null>(null);
 
-  const scale = is2XLDesktop ? 0.85 : isXLDesktop ? 0.7 : 0.6;
+  const scale = is3XLDesktop ? 0.9 : is2XLDesktop ? 0.85 : isXLDesktop ? 0.7 : 0.6;
 
   useGSAP(() => {
     if (!isDesktop) return;
@@ -45,7 +45,7 @@ const HeroExperience = () => {
       meshGroup.position,
       {
         y: 5,
-        x: is2XLDesktop ? 12 : isXLDesktop ? 14 : 16,
+        x: is3XLDesktop || is2XLDesktop ? 12 : isXLDesktop ? 14 : 16,
         ease: 'power4.out',
       },
       '<',

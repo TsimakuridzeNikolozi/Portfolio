@@ -64,7 +64,7 @@ const Contact = () => {
       <GlassCard className="!h-fit max-w-[60rem] rounded-xl p-4 md:p-6 xl:p-10">
         <form ref={formRef} onSubmit={handleSubmit} className="flex w-full flex-col gap-7">
           <div className="flex flex-col gap-2">
-            <label htmlFor="name" className="text-xs font-medium tracking-wide text-white/80 uppercase md:text-sm">
+            <label htmlFor="name" className="input-label">
               Your name
             </label>
             <input
@@ -75,13 +75,13 @@ const Contact = () => {
               value={form.name}
               onChange={handleChange}
               placeholder="What's your name?"
-              className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white backdrop-blur-sm transition-all duration-300 placeholder:text-white/40 hover:border-white/20 hover:bg-white/8 focus:border-accent/50 focus:bg-white/10 focus:ring-2 focus:ring-accent/20 focus:outline-none xl:text-base"
+              className="input"
               required
             />
           </div>
 
           <div className="flex flex-col gap-2">
-            <label htmlFor="email" className="text-xs font-medium tracking-wide text-white/80 uppercase md:text-sm">
+            <label htmlFor="email" className="input-label">
               Your Email
             </label>
             <input
@@ -92,13 +92,13 @@ const Contact = () => {
               value={form.email}
               onChange={handleChange}
               placeholder="What's your email address?"
-              className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white backdrop-blur-sm transition-all duration-300 placeholder:text-white/40 hover:border-white/20 hover:bg-white/8 focus:border-accent/50 focus:bg-white/10 focus:ring-2 focus:ring-accent/20 focus:outline-none xl:text-base"
+              className="input"
               required
             />
           </div>
 
           <div className="flex flex-col gap-2">
-            <label htmlFor="message" className="text-xs font-medium tracking-wide text-white/80 uppercase md:text-sm">
+            <label htmlFor="message" className="input-label">
               Your Message
             </label>
             <textarea
@@ -108,7 +108,7 @@ const Contact = () => {
               onChange={handleChange}
               placeholder="How can I help you?"
               rows={5}
-              className="w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white backdrop-blur-sm transition-all duration-300 placeholder:text-white/40 hover:border-white/20 hover:bg-white/8 focus:border-accent/50 focus:bg-white/10 focus:ring-2 focus:ring-accent/20 focus:outline-none xl:text-base"
+              className="input"
               required
             />
           </div>
@@ -123,7 +123,7 @@ const Contact = () => {
         </form>
       </GlassCard>
       {!isMobile && (
-        <div className="h-full max-h-[20rem] w-full xl:max-h-[32rem] xl:min-h-96">
+        <div className="h-full max-h-[20rem] w-full xl:max-h-[32rem] xl:min-h-96 3xl:max-h-[44rem]">
           <div className="h-full w-full overflow-hidden rounded-3xl hover:cursor-grab">
             <World globeConfig={globeConfig} data={globeArcs} />
           </div>

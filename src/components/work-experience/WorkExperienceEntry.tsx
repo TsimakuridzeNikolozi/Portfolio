@@ -62,10 +62,10 @@ const WorkExperienceEntry = ({ workExperience }: WorkExperienceEntryProps) => {
   return (
     <GlassCard
       ref={ref}
-      className="work-experience-entry relative w-1/2 max-w-4xl space-y-3 rounded-2xl p-3 md:space-y-6 md:p-6"
+      className="work-experience-entry relative w-1/2 max-w-4xl space-y-3 rounded-2xl p-3 md:space-y-6 md:p-6 3xl:max-w-7xl 3xl:space-y-8 3xl:p-10"
     >
       <WorkExperienceEntryHeader workExperience={workExperience} />
-      <div className="mx-8 h-0.5 bg-gradient-to-r from-transparent via-accent/40 to-transparent"></div>
+      <div className="mx-8 h-0.5 bg-gradient-to-r from-transparent via-accent/40 to-transparent 3xl:h-1"></div>
       <WorkExperienceEntryHighlights workExperience={workExperience} />
     </GlassCard>
   );

@@ -11,7 +11,8 @@ export const ResponsiveProvider = ({ children }: ResponsiveProviderProps) => {
   const isTablet = useMediaQuery({ query: '(min-width: 768px) and (max-width: 1023px)' });
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
   const isXLDesktop = useMediaQuery({ query: '(min-width: 1280px) and (max-width: 1535px)' });
-  const is2XLDesktop = useMediaQuery({ query: '(min-width: 1536px)' });
+  const is2XLDesktop = useMediaQuery({ query: '(min-width: 1536px) and (max-width: 1919px)' });
+  const is3XLDesktop = useMediaQuery({ query: '(min-width: 2400px)' });
 
   const value = {
     isMobile,
@@ -19,6 +20,7 @@ export const ResponsiveProvider = ({ children }: ResponsiveProviderProps) => {
     isDesktop,
     isXLDesktop,
     is2XLDesktop,
+    is3XLDesktop,
   };
 
   return <ResponsiveContext.Provider value={value}>{children}</ResponsiveContext.Provider>;
