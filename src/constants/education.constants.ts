@@ -36,7 +36,7 @@ export const EDUCATION: EducationType[] = [
   },
   {
     category: EducationCategory.CERTIFICATIONS,
-    school: 'Blockhain Training Alliance',
+    school: 'Blockchain Training Alliance',
     degree: 'Blockchain Developer - Ethereum',
     certificateLink: 'https://drive.google.com/file/d/1qxP2r2w6wskiWN8iOLb-2l9dLIjs_qzf/view?usp=sharing',
     date: '2023',

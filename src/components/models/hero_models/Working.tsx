@@ -346,4 +346,4 @@ export const Working = ({ setMeshGroup }: { setMeshGroup?: (group: THREE.Group) 
   );
 };
 
-useGLTF.preload('/working.glb');
+useGLTF.preload('/models/working.glb');

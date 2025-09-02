@@ -50,7 +50,7 @@ const FooterLink = () => {
       ref={linkRef}
       onClick={onButtonClick}
       aria-label="Scroll to top of page"
-      className="flex w-fit items-center gap-x-2 rounded-full border border-accent/40 p-1.5 transition-all duration-300 hover:backdrop-blur-lg"
+      className="flex w-fit cursor-pointer items-center gap-x-2 rounded-full border border-accent/40 p-1.5 transition-all duration-300 hover:backdrop-blur-lg"
     >
       <img
         ref={iconRef}
