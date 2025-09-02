@@ -422,6 +422,7 @@ body {
     transparent 40%
   );
   z-index: 3;
+  pointer-events: none;
 }
 
 .glowing-card::after {
@@ -438,7 +439,7 @@ body {
   inset: 0.0625rem;
   padding: 0.75rem;
   position: absolute;
-  z-index: 3;
+  z-index: 2;
 }
 
 @media (min-width: 768px) {

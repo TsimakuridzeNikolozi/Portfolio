@@ -26,7 +26,7 @@ const Navbar = () => {
         </nav>
       </div>
 
-      <a className="simple-button" onClick={onContactClick}>
+      <a className="simple-button cursor-pointer" onClick={onContactClick}>
         Contact Me
       </a>
     </header>

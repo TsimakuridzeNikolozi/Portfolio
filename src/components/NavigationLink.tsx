@@ -53,7 +53,7 @@ const NavigationLink = memo(({ link }: NavigationLinkProps) => {
   return (
     <a
       ref={linkRef}
-      className="relative flex items-center gap-x-2 px-4 py-2 text-white transition-all duration-300 hover:text-accent 3xl:gap-x-3 3xl:px-6 3xl:py-3"
+      className="relative flex cursor-pointer items-center gap-x-2 px-4 py-2 text-white transition-all duration-300 hover:text-accent 3xl:gap-x-3 3xl:px-6 3xl:py-3"
       onClick={handleClick}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}

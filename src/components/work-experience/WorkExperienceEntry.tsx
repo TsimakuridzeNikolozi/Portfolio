@@ -35,6 +35,7 @@ const WorkExperienceEntry = ({ workExperience }: WorkExperienceEntryProps) => {
 
     const textElements = [
       '.work-experience-title',
+      '.work-experience-company',
       '.work-experience-period',
       '.work-experience-overview',
       '.work-experience-highlights',
