@@ -1,12 +1,19 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { debounce } from '../utils/debounce';
 
 export const useResize = () => {
+  const previousWidth = useRef(window.innerWidth);
+
   useEffect(() => {
     if (import.meta.env.DEV) return;
 
     const handleResize = () => {
-      window.location.reload();
+      const currentWidth = window.innerWidth;
+
+      if (currentWidth !== previousWidth.current) {
+        previousWidth.current = currentWidth;
+        window.location.reload();
+      }
     };
 
     const debouncedHandleResize = debounce(handleResize);
