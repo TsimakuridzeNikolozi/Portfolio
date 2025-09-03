@@ -24,7 +24,7 @@ const HeroHeader = () => {
     gsap.fromTo(
       '#hero-phrase, .hero-text h1, .arrow-button',
       { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, stagger: 0.2, duration: 1, ease: 'power2.inOut' },
+      { y: 0, opacity: 1, stagger: 0.5, duration: 1, ease: 'power2.inOut' },
     );
 
     gsap.to('#hero-header', {
@@ -70,8 +70,10 @@ const HeroHeader = () => {
         <TextType
           id="hero-phrase"
           text={phrases}
-          className="text-center text-sm md:text-[1rem] xl:text-xl 3xl:text-3xl"
+          className="min-h-6 text-center text-sm md:min-h-8 md:text-[1rem] xl:text-xl 3xl:text-3xl"
           gradientText
+          initialDelay={2000}
+          showCursor={false}
         />
         <div className="hero-text">
           <h1 className="mb-4 xl:mb-10">Hi, I'm Nikolozi,</h1>

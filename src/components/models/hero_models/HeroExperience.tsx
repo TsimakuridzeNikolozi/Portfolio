@@ -45,7 +45,7 @@ const HeroExperience = () => {
       meshGroup.position,
       {
         y: 5,
-        x: is3XLDesktop || is2XLDesktop ? 12 : isXLDesktop ? 14 : 16,
+        x: 12,
         ease: 'power4.out',
       },
       '<',
@@ -111,7 +111,7 @@ const HeroExperience = () => {
       workExperienceToEducationTimeline.kill();
       educationToSkillTimeline.kill();
     };
-  }, [meshGroup, isDesktop, isXLDesktop, is2XLDesktop]);
+  }, [meshGroup, isDesktop]);
 
   if (!isDesktop) return null;
 
@@ -122,6 +122,9 @@ const HeroExperience = () => {
         camera={{
           position: [0, -4.5, 20],
           fov: 45,
+        }}
+        gl={{
+          powerPreference: 'high-performance',
         }}
       >
         <ambientLight intensity={0.2} color="#a259ff" />

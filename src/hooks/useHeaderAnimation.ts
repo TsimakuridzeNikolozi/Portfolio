@@ -14,45 +14,40 @@ export const useHeaderAnimation = () => {
 
     const offset = is3XLDesktop ? '320px' : '200px';
 
-    const workExperienceTrigger = ScrollTrigger.create({
-      trigger: '#hero-to-work-experience',
-      start: 'top top',
-      end: `top ${offset}`,
-      endTrigger: '#work-experience',
-      scrub: true,
-      pin: '#work-experience-header',
-      animation: gsap.fromTo('#work-experience-header', ...HEADER_ANIMATION_PROPS),
-    });
+    const headerConfigs = [
+      {
+        trigger: '#hero-to-work-experience',
+        endTrigger: '#work-experience',
+        pin: '#work-experience-header',
+      },
+      {
+        trigger: '#work-experience-to-education',
+        endTrigger: '#education',
+        pin: '#education-header',
+      },
+      {
+        trigger: '#education-to-skills',
+        endTrigger: '#skills',
+        pin: '#skills-header',
+      },
+      {
+        trigger: '#skills-to-testimonials',
+        endTrigger: '#testimonials',
+        pin: '#testimonials-header',
+      },
+    ];
 
-    const educationTrigger = ScrollTrigger.create({
-      trigger: '#work-experience-to-education',
-      start: 'top top',
-      end: `top ${offset}`,
-      endTrigger: '#education',
-      scrub: true,
-      pin: '#education-header',
-      animation: gsap.fromTo('#education-header', ...HEADER_ANIMATION_PROPS),
-    });
-
-    const skillsTrigger = ScrollTrigger.create({
-      trigger: '#education-to-skills',
-      start: 'top top',
-      end: `top ${offset}`,
-      endTrigger: '#skills',
-      scrub: true,
-      pin: '#skills-header',
-      animation: gsap.fromTo('#skills-header', ...HEADER_ANIMATION_PROPS),
-    });
-
-    const testimonialsTrigger = ScrollTrigger.create({
-      trigger: '#skills-to-testimonials',
-      start: 'top top',
-      end: `top ${offset}`,
-      endTrigger: '#testimonials',
-      scrub: true,
-      pin: '#testimonials-header',
-      animation: gsap.fromTo('#testimonials-header', ...HEADER_ANIMATION_PROPS),
-    });
+    const triggers = headerConfigs.map(({ trigger, endTrigger, pin }) =>
+      ScrollTrigger.create({
+        trigger,
+        start: 'top top',
+        end: `top ${offset}`,
+        endTrigger,
+        scrub: true,
+        pin,
+        animation: gsap.fromTo(pin, ...HEADER_ANIMATION_PROPS),
+      }),
+    );
 
     const contactTrigger = ScrollTrigger.create({
       trigger: '#testimonials-to-contact',
@@ -72,10 +67,7 @@ export const useHeaderAnimation = () => {
     });
 
     return () => {
-      workExperienceTrigger.kill();
-      educationTrigger.kill();
-      skillsTrigger.kill();
-      testimonialsTrigger.kill();
+      triggers.forEach((trigger) => trigger.kill());
       contactTrigger.kill();
     };
   }, [isDesktop, is3XLDesktop]);

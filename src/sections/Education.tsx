@@ -34,28 +34,21 @@ const Education = () => {
 
   useGSAP(() => {
     ScrollTrigger.getById('timelineTrigger')?.kill();
-    ScrollTrigger.getById('logoTrigger')?.kill();
 
+    const logos = document.querySelectorAll('.timeline-logo-wrapper');
     const timelineTrigger = ScrollTrigger.create({
       id: 'timelineTrigger',
       trigger: '.timeline',
-      start: 'top+=20% bottom',
+      start: 'top+=40% bottom',
       end: 'bottom+=20% bottom',
       onUpdate: (self) => {
+        // Timeline scale animation
         gsap.to('.timeline', {
           transformOrigin: 'bottom bottom',
           scaleY: 1 - self.progress,
         });
-      },
-    });
 
-    const logoTrigger = ScrollTrigger.create({
-      id: 'logoTrigger',
-      trigger: '.timeline',
-      start: 'top+=20% bottom',
-      end: 'bottom+=20% bottom',
-      onUpdate: (self) => {
-        const logos = document.querySelectorAll('.timeline-logo-wrapper');
+        // Logo opacity animation
         logos.forEach((logo, index) => {
           const progressPerLogo = 1 / logos.length;
           const logoProgress = (self.progress - index * progressPerLogo) / progressPerLogo;
@@ -70,7 +63,6 @@ const Education = () => {
 
     return () => {
       timelineTrigger.kill();
-      logoTrigger.kill();
     };
   }, [paginatedEducation]);
 
