@@ -1,50 +1,157 @@
-# React + TypeScript + Vite
+# 🚀 Nikolozi Tsimakuridze - Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, interactive portfolio website showcasing my journey as a Full-Stack Web3 Developer. Built with cutting-edge technologies and featuring 3D animations, smooth transitions, and responsive design.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🎨 3D Elements
 
-## Expanding the ESLint configuration
+- **Animated 3D Character**: Low-poly character working at a laptop with smooth animations
+- **Interactive Globe**: 3D world map with animated arcs and connection points
+- **Dynamic Lighting**: Lighting setup with ambient and directional lights
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### 🌟 Modern UI/UX
 
-- Configure the top-level `parserOptions` property like this:
+- **Smooth Animations**: GSAP-powered scroll-triggered animations
+- **Gradient Effects**: Beautiful gradient text and backgrounds
+- **Glass Morphism**: Modern frosted glass effects throughout the interface
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### 📱 Portfolio Sections
+
+- **Hero Section**: Animated introduction with 3D character
+- **Work Experience**: Professional journey with detailed descriptions
+- **Education & Certifications**: Academic achievements and certifications
+- **Technical Skills**: Interactive skill showcase with technology logos
+- **Testimonials**: Client and colleague recommendations
+- **Contact Form**: Functional contact form with EmailJS integration
+
+### ⚡ Performance Optimizations
+
+- **Code Splitting**: Optimized bundle sizes with manual chunks
+- **Asset Optimization**: Compressed images and optimized 3D models
+- **Gzip/Brotli Compression**: Reduced file sizes for faster loading
+
+## 🛠️ Tech Stack
+
+### Frontend Framework
+
+- **React 19** - Latest React with concurrent features
+- **TypeScript** - Type-safe development
+- **Vite** - Lightning-fast build tool and dev server
+
+### 3D Graphics & Animation
+
+- **Three.js** - 3D graphics library
+- **@react-three/fiber** - React renderer for Three.js
+- **@react-three/drei** - Useful helpers and abstractions
+- **three-globe** - Interactive 3D globe component
+- **GSAP** - Professional animation library
+- **@gsap/react** - React integration for GSAP
+
+### Styling & UI
+
+- **Tailwind CSS 4** - Utility-first CSS framework
+- **@tailwindcss/vite** - Vite plugin for Tailwind
+- **Clsx & Tailwind Merge** - Conditional class management
+- **Motion** - Animation library
+
+### Additional Features
+
+- **EmailJS** - Contact form functionality
+- **React Hot Toast** - Beautiful toast notifications
+- **React Responsive** - Responsive breakpoint management
+- **File Saver** - Resume download functionality
+
+### Development Tools
+
+- **ESLint** - Code linting with TypeScript support
+- **Prettier** - Code formatting
+- **Terser** - JavaScript minification
+- **Wrangler** - Cloudflare Workers deployment
+
+## 📁 Project Structure
+
+```
+src/
+├── components/         # Reusable UI components
+│   ├── models/         # 3D model components
+│   │   └── hero_models/# Hero section 3D models
+│   ├── reusable/       # Generic reusable components
+│   └── [sections]/     # Section-specific components
+├── sections/           # Main portfolio sections
+├── constants/          # Application constants
+├── contexts/           # React contexts
+├── hooks/              # Custom React hooks
+├── providers/          # Context providers
+├── types/              # TypeScript type definitions
+├── utils/              # Utility functions
+└── data/               # Static data files
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 🔧 Available Scripts
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+| Script                   | Description                     |
+| ------------------------ | ------------------------------- |
+| `npm run dev`            | Start development server        |
+| `npm run build`          | Build for production            |
+| `npm run preview`        | Preview production build        |
+| `npm run lint`           | Run ESLint                      |
+| `npm run lint:fix`       | Fix ESLint issues               |
+| `npm run format`         | Format code with Prettier       |
+| `npm run format:check`   | Check code formatting           |
+| `npm run preview:worker` | Preview with Cloudflare Workers |
+| `npm run deploy:worker`  | Deploy to Cloudflare Workers    |
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+## 🌐 Deployment
+
+### Cloudflare Workers (Current Setup)
+
+The project is configured for deployment on Cloudflare Workers:
+
+```bash
+npm run deploy:worker
 ```
+
+### Other Platforms
+
+The built files in `/dist` can be deployed to any static hosting service:
+
+- Vercel
+- Netlify
+- GitHub Pages
+- AWS S3
+
+### Models Used
+
+- **Working Character**: Low-poly animated character (CC-BY-4.0 license)
+  - Source: Sketchfab by Agor_2012
+  - Features: Typing animation, professional workspace setup
+
+### Asset Optimization
+
+- WebP images for better compression
+- Compressed 3D models (.glb format)
+- SVG icons for crisp scaling
+- Optimized font loading
+
+## 🔮 Performance Features
+
+### Build Optimizations
+
+- **Manual Chunks**: Separate bundles for Three.js and GSAP
+- **Tree Shaking**: Unused code elimination
+- **Minification**: Terser with console removal
+- **Compression**: Gzip and Brotli compression
+
+### Runtime Optimizations
+
+- **Memoization**: React.memo for expensive components
+- **Asset Preloading**: Critical assets preloaded
+- **Debounced Events**: Optimized scroll and resize handlers
+
+## 🎯 Browser Support
+
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
