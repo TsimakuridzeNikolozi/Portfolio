@@ -2,7 +2,7 @@ import { EducationCategory, type EducationType } from '../types/education.types'
 
 export const EDUCATION: EducationType[] = [
   {
-    category: EducationCategory.GENERAL,
+    category: EducationCategory.EDUCATION,
     school: 'Komarovi Physics and Mathematics School',
     degree: 'High School Diploma',
     date: '2014 - 2020',
@@ -10,7 +10,7 @@ export const EDUCATION: EducationType[] = [
     websiteLink: 'https://komarovi.edu.ge/',
   },
   {
-    category: EducationCategory.GENERAL,
+    category: EducationCategory.EDUCATION,
     school: 'Mziuri Collage',
     degree: 'Programming Basics and C++',
     date: '2018-2020',
@@ -18,7 +18,7 @@ export const EDUCATION: EducationType[] = [
     websiteLink: 'https://www.mziuri.ge/',
   },
   {
-    category: EducationCategory.GENERAL,
+    category: EducationCategory.EDUCATION,
     school: 'Free University of Tbilisi',
     degree: 'Computer Science and Mathematics (Bachelor)',
     date: '2020 - Present',

@@ -54,7 +54,7 @@ export const SKILLS: Skill[] = [
   {
     name: 'Tenderly',
     icon: '/images/tech/tenderly.webp',
-    score: 40,
+    score: 60,
   },
   {
     name: 'Git',

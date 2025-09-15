@@ -30,7 +30,7 @@ body {
 
 @media (min-width: 2400px) {
   section {
-    height: 65dvh;
+    min-height: 65dvh;
   }
 }
 

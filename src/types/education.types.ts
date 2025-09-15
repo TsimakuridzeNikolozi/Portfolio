@@ -1,6 +1,6 @@
 export enum EducationCategory {
   CERTIFICATIONS = 'Certifications',
-  GENERAL = 'General',
+  EDUCATION = 'Education',
 }
 
 export type EducationType = {
