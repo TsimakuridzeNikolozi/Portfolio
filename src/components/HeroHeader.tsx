@@ -70,7 +70,7 @@ const HeroHeader = () => {
         <TextType
           id="hero-phrase"
           text={phrases}
-          className="min-h-6 text-center text-sm md:min-h-8 md:text-[1rem] xl:text-xl 3xl:text-3xl"
+          className="min-h-6 text-center text-sm md:min-h-8 md:text-[1rem] xl:text-xl 3xl:min-h-10 3xl:text-3xl"
           gradientText
           initialDelay={2000}
           showCursor={false}
