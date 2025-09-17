@@ -2,7 +2,7 @@ import { Canvas } from '@react-three/fiber';
 import { useResponsive } from '../../../hooks/useResponsive';
 import { Working } from './Working';
 import HeroLights from './HeroLights';
-import { Suspense, useState } from 'react';
+import { Suspense, useState, useMemo } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -14,10 +14,13 @@ const HeroExperience = () => {
   const { isDesktop, isXLDesktop, is2XLDesktop, is3XLDesktop } = useResponsive();
   const [meshGroup, setMeshGroup] = useState<THREE.Group | null>(null);
 
-  const scale = is3XLDesktop ? 0.9 : is2XLDesktop ? 0.85 : isXLDesktop ? 0.7 : 0.6;
+  const scale = useMemo(() => {
+    return is3XLDesktop ? 0.9 : is2XLDesktop ? 0.85 : isXLDesktop ? 0.7 : 0.6;
+  }, [is3XLDesktop, is2XLDesktop, isXLDesktop]);
 
   useGSAP(() => {
-    if (!isDesktop) return;
+    if (!isDesktop || !meshGroup) return;
+
     const heroToWorkExperienceTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: '#hero',
@@ -27,15 +30,12 @@ const HeroExperience = () => {
         scrub: true,
       },
     });
-
-    if (!meshGroup) return;
     heroToWorkExperienceTimeline.to(meshGroup.scale, {
       x: 1.25,
       y: 1.25,
       z: 1.25,
       ease: 'power4.out',
     });
-
     heroToWorkExperienceTimeline.to(meshGroup.rotation, {
       y: -1.5,
       z: -0.1,
@@ -59,7 +59,6 @@ const HeroExperience = () => {
         scrub: true,
       },
     });
-
     workExperienceToEducationTimeline.to(meshGroup.rotation, {
       y: -2.7,
       z: 0,
@@ -75,7 +74,6 @@ const HeroExperience = () => {
         scrub: true,
       },
     });
-
     educationToSkillTimeline.to(meshGroup.scale, {
       x: 0.6,
       y: 0.6,
@@ -83,7 +81,6 @@ const HeroExperience = () => {
       ease: 'power2.inOut',
       duration: 1.5,
     });
-
     educationToSkillTimeline.to(
       meshGroup.position,
       {
@@ -94,7 +91,6 @@ const HeroExperience = () => {
       },
       '<0.1',
     );
-
     educationToSkillTimeline.to(
       meshGroup.rotation,
       {
@@ -125,7 +121,11 @@ const HeroExperience = () => {
         }}
         gl={{
           powerPreference: 'high-performance',
+          antialias: false,
+          preserveDrawingBuffer: false,
         }}
+        dpr={Math.min(window.devicePixelRatio, 2)}
+        performance={{ min: 0.5 }}
       >
         <ambientLight intensity={0.2} color="#a259ff" />
 

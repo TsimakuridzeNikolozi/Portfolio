@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useMemo } from 'react';
 import { ResponsiveContext } from '../contexts/ResponsiveContext';
 import { useMediaQuery } from 'react-responsive';
 
@@ -14,14 +14,17 @@ export const ResponsiveProvider = ({ children }: ResponsiveProviderProps) => {
   const is2XLDesktop = useMediaQuery({ query: '(min-width: 1536px) and (max-width: 1919px)' });
   const is3XLDesktop = useMediaQuery({ query: '(min-width: 2400px)' });
 
-  const value = {
-    isMobile,
-    isTablet,
-    isDesktop,
-    isXLDesktop,
-    is2XLDesktop,
-    is3XLDesktop,
-  };
+  const value = useMemo(
+    () => ({
+      isMobile,
+      isTablet,
+      isDesktop,
+      isXLDesktop,
+      is2XLDesktop,
+      is3XLDesktop,
+    }),
+    [isMobile, isTablet, isDesktop, isXLDesktop, is2XLDesktop, is3XLDesktop],
+  );
 
   return <ResponsiveContext.Provider value={value}>{children}</ResponsiveContext.Provider>;
 };

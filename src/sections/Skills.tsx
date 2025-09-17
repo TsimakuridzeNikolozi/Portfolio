@@ -100,8 +100,6 @@ const Skills = () => {
       },
     });
 
-    updateBackFacing();
-
     return () => {
       gsap.ticker.remove(tick);
       draggable[0].kill();

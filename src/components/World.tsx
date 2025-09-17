@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, memo } from 'react';
+import { useEffect, useRef, useState, memo, useMemo } from 'react';
 import { Color, Scene, Fog, PerspectiveCamera, Vector3, Group } from 'three';
 import ThreeGlobe from 'three-globe';
 import { useThree, Canvas, extend } from '@react-three/fiber';
@@ -65,22 +65,25 @@ const Globe = memo<WorldProps>(({ globeConfig, data }) => {
   const groupRef = useRef<Group | null>(null);
   const [isInitialized, setIsInitialized] = useState(false);
 
-  const defaultProps = {
-    pointSize: 1,
-    atmosphereColor: '#ffffff',
-    showAtmosphere: true,
-    atmosphereAltitude: 0.5,
-    polygonColor: 'rgba(255,255,255,0.7)',
-    globeColor: '#1d072e',
-    emissive: '#000000',
-    emissiveIntensity: 0.1,
-    shininess: 0.9,
-    arcTime: 2000,
-    arcLength: 0.9,
-    rings: 1,
-    maxRings: 3,
-    ...globeConfig,
-  };
+  const defaultProps = useMemo(
+    () => ({
+      pointSize: 1,
+      atmosphereColor: '#ffffff',
+      showAtmosphere: true,
+      atmosphereAltitude: 0.5,
+      polygonColor: 'rgba(255,255,255,0.7)',
+      globeColor: '#1d072e',
+      emissive: '#000000',
+      emissiveIntensity: 0.1,
+      shininess: 0.9,
+      arcTime: 2000,
+      arcLength: 0.9,
+      rings: 1,
+      maxRings: 3,
+      ...globeConfig,
+    }),
+    [globeConfig],
+  );
 
   // Initialize globe only once
   useEffect(() => {
