@@ -11,10 +11,13 @@ const EducationInfo = ({ education }: EducationInfoProps) => {
         <a href={education.websiteLink} target="_blank" rel="noopener noreferrer" className="link-hover">
           {education.school}
         </a>
-        <div className="mt-2 flex items-center gap-x-2 text-lg">
-          <img src="/images/calendar.svg" alt="calendar" className="inline size-4" />
-          <span className="text-xs text-white/50 md:text-sm xl:text-base 3xl:text-xl">{education.date}</span>
-        </div>
+        {education.date && (
+          <div className="mt-2 flex items-center gap-x-2 text-lg">
+            <img src="/images/calendar.svg" alt="calendar" className="inline size-4" />
+
+            <span className="text-xs text-white/50 md:text-sm xl:text-base 3xl:text-xl">{education.date}</span>
+          </div>
+        )}
       </h1>
       <div className="flex items-center gap-x-1 text-sm font-light text-emerald-500 italic md:gap-x-2 md:text-base xl:text-xl 3xl:text-2xl">
         <div className="inline h-4 w-1 rounded-full bg-gradient-to-r from-accent to-[#00c9ff] md:h-6 md:w-1.5" />

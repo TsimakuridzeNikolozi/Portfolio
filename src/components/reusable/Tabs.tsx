@@ -13,7 +13,7 @@ const Tabs = <T extends ReactNode>({ tabs, activeTab, setActiveTab, className }:
     <div
       role="tablist"
       className={cn(
-        'inline-flex w-max items-center gap-1 rounded-full border border-white/20 bg-white/5 p-1 backdrop-blur',
+        'inline-flex w-max items-center gap-1 rounded-full border border-white/20 bg-white/5 p-1',
         className,
       )}
     >

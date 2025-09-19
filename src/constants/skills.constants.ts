@@ -27,6 +27,11 @@ export const SKILLS: Skill[] = [
     score: 90,
   },
   {
+    name: 'NextJS',
+    icon: '/images/tech/nextjs.webp',
+    score: 55,
+  },
+  {
     name: 'Foundry',
     icon: '/images/tech/foundry.avif',
     score: 50,

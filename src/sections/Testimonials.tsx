@@ -5,8 +5,10 @@ import gsap from 'gsap';
 import { useResponsive } from '../hooks/useResponsive';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { cn } from '../utils/cn';
+import { useGlowingCard } from '../hooks/useGlowingCard';
 
 const Testimonials = () => {
+  useGlowingCard();
   const { isMobile } = useResponsive();
   const [showFull, setShowFull] = useState(!isMobile);
 

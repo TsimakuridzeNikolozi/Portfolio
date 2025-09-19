@@ -12,7 +12,7 @@ export const useHeaderAnimation = () => {
   useGSAP(() => {
     if (!isDesktop) return;
 
-    const offset = is3XLDesktop ? '320px' : '200px';
+    const offset = is3XLDesktop ? '320px' : '220px';
 
     const headerConfigs = [
       {

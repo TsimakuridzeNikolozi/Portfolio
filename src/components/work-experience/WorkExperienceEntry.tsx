@@ -29,7 +29,6 @@ const WorkExperienceEntry = ({ workExperience }: WorkExperienceEntryProps) => {
       scrollTrigger: {
         trigger: ref.current,
         start: 'top 80%',
-        toggleActions: 'play none none reverse',
       },
     });
 
@@ -44,9 +43,9 @@ const WorkExperienceEntry = ({ workExperience }: WorkExperienceEntryProps) => {
       },
     ).fromTo(
       textElements,
-      { yPercent: 40, opacity: 0 },
+      { y: 40, opacity: 0 },
       {
-        yPercent: 0,
+        y: 0,
         opacity: 1,
         duration: 0.7,
         stagger: 0.15,
@@ -59,7 +58,7 @@ const WorkExperienceEntry = ({ workExperience }: WorkExperienceEntryProps) => {
   return (
     <GlassCard
       ref={ref}
-      className="work-experience-entry relative w-1/2 max-w-4xl space-y-3 overflow-hidden rounded-2xl p-3 md:space-y-6 md:p-6 3xl:max-w-7xl 3xl:space-y-8 3xl:p-10"
+      className="relative w-full space-y-3 overflow-hidden rounded-2xl p-3 md:space-y-6 md:p-6 3xl:space-y-8 3xl:p-10"
     >
       <WorkExperienceEntryHeader workExperience={workExperience} />
       <div className="mx-8 h-0.5 bg-gradient-to-r from-transparent via-accent/40 to-transparent 3xl:h-1"></div>

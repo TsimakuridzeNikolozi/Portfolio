@@ -6,10 +6,10 @@ import { useResponsive } from '../hooks/useResponsive';
 import { smoothScrollTo } from '../utils/smoothScroll';
 
 const FooterLink = () => {
-  const linkRef = useRef<HTMLAnchorElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
   const iconRef = useRef<HTMLImageElement>(null);
 
-  const onButtonClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const onButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     smoothScrollTo('#hero', {
       duration: 1,
@@ -19,7 +19,7 @@ const FooterLink = () => {
   useGSAP(() => {
     const tl = gsap.timeline({ paused: true });
 
-    tl.to(linkRef.current, {
+    tl.to(buttonRef.current, {
       scale: 1.1,
       borderColor: 'var(--color-accent)',
       backgroundColor: 'rgba(44, 251, 151, 0.2)',
@@ -35,22 +35,22 @@ const FooterLink = () => {
       0,
     );
 
-    linkRef.current?.addEventListener('mouseenter', () => tl.play());
-    linkRef.current?.addEventListener('mouseleave', () => tl.reverse());
+    buttonRef.current?.addEventListener('mouseenter', () => tl.play());
+    buttonRef.current?.addEventListener('mouseleave', () => tl.reverse());
 
     return () => {
       tl.kill();
-      linkRef.current?.removeEventListener('mouseenter', () => tl.play());
-      linkRef.current?.removeEventListener('mouseleave', () => tl.reverse());
+      buttonRef.current?.removeEventListener('mouseenter', () => tl.play());
+      buttonRef.current?.removeEventListener('mouseleave', () => tl.reverse());
     };
   });
 
   return (
-    <a
-      ref={linkRef}
+    <button
+      ref={buttonRef}
       onClick={onButtonClick}
       aria-label="Scroll to top of page"
-      className="flex w-fit cursor-pointer items-center gap-x-2 rounded-full border border-accent/40 p-1.5 transition-all duration-300 hover:backdrop-blur-lg"
+      className="flex w-fit cursor-pointer items-center gap-x-2 rounded-full border border-accent/40 p-1.5 transition-all duration-300"
     >
       <img
         ref={iconRef}
@@ -58,7 +58,7 @@ const FooterLink = () => {
         alt="Scroll to top arrow"
         className="size-5 lg:size-7 3xl:size-10"
       />
-    </a>
+    </button>
   );
 };
 

@@ -236,7 +236,7 @@ const WebGLRendererConfig = memo(() => {
   return null;
 });
 
-export const World = memo<WorldProps>(({ globeConfig, data }) => {
+const World = memo<WorldProps>(({ globeConfig, data }) => {
   const scene = new Scene();
   scene.fog = new Fog(0xffffff, 400, 2000);
 
@@ -261,3 +261,5 @@ export const World = memo<WorldProps>(({ globeConfig, data }) => {
     </Canvas>
   );
 });
+
+export default World;

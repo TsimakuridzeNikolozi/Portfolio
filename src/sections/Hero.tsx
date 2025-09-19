@@ -9,7 +9,7 @@ const Hero = () => {
       <Suspense fallback={<SuspenseSpinner />}>
         <HeroExperienceMobile />
       </Suspense>
-      <div className="relative z-10 mt-10 flex h-[90vh] flex-col items-start justify-start md:mt-20 lg:h-dvh xl:mt-24">
+      <div className="relative z-10 flex h-[90vh] flex-col items-start justify-start lg:h-dvh">
         <HeroHeader />
       </div>
     </section>

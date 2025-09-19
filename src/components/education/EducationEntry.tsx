@@ -18,7 +18,12 @@ const EducationEntry = ({ education }: EducationEntryProps) => {
           <div className={cn('timeline-logo-wrapper', 'border-accent')}></div>
           <div className="timeline-logo">
             <a href={education.websiteLink} target="_blank" rel="noopener noreferrer" className="z-10 cursor-pointer">
-              <img src={education.logoPath} alt="logo" className="rounded-full p-0.5" />
+              <img
+                src={education.logoPath}
+                alt="logo"
+                loading="lazy"
+                className="size-12 rounded-full p-0.5 md:size-[5.125rem] 3xl:size-28"
+              />
             </a>
           </div>
           <EducationInfo education={education} />

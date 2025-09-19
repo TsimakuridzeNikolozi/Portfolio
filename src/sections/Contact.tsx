@@ -1,9 +1,12 @@
-import { useCallback, useRef, useState } from 'react';
-import { World } from '../components/World';
+import { Suspense, useCallback, useRef, useState } from 'react';
 import { globeArcs, globeConfig } from '../constants/globe.constants';
 import GlassCard from '../components/reusable/GlassCard';
 import toast from 'react-hot-toast';
 import { useResponsive } from '../hooks/useResponsive';
+import { lazy } from 'react';
+import SuspenseSpinner from '../components/reusable/SuspenseSpinner';
+
+const World = lazy(() => import('../components/World'));
 
 const Contact = () => {
   const { isMobile } = useResponsive();
@@ -113,11 +116,7 @@ const Contact = () => {
             />
           </div>
 
-          <button
-            type="submit"
-            className="simple-button cursor-pointer rounded-lg disabled:cursor-not-allowed"
-            disabled={loading}
-          >
+          <button type="submit" className="simple-button rounded-lg disabled:cursor-not-allowed" disabled={loading}>
             {loading ? 'Sending...' : 'Send Message'}
           </button>
         </form>
@@ -125,7 +124,9 @@ const Contact = () => {
       {!isMobile && (
         <div className="h-full max-h-[20rem] w-full xl:max-h-[32rem] xl:min-h-96 3xl:max-h-[44rem]">
           <div className="h-full w-full overflow-hidden rounded-3xl hover:cursor-grab">
-            <World globeConfig={globeConfig} data={globeArcs} />
+            <Suspense fallback={<SuspenseSpinner />}>
+              <World globeConfig={globeConfig} data={globeArcs} />
+            </Suspense>
           </div>
         </div>
       )}

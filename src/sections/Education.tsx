@@ -65,8 +65,8 @@ const Education = () => {
   }, [paginatedEducation]);
 
   return (
-    <section id="education" className="padding-x lg:min-h-dvh">
-      <div className="flex max-w-4xl flex-col gap-y-4 md:gap-y-8 lg:w-1/2 3xl:max-w-7xl">
+    <section id="education" className="padding-x min-h-[32rem] lg:min-h-dvh">
+      <div className="flex max-w-4xl flex-col gap-y-4 md:gap-y-8 lg:w-3/5 3xl:max-w-7xl">
         <div className="flex w-full flex-col flex-wrap items-center justify-between gap-x-4 gap-y-2 min-[30rem]:flex-row">
           <Tabs
             tabs={[EducationCategory.CERTIFICATIONS, EducationCategory.EDUCATION]}

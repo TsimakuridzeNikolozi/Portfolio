@@ -11,6 +11,7 @@ const WorkExperienceEntryHeader = ({ workExperience }: WorkExperienceEntryHeader
         <img
           src={workExperience.logoPath}
           alt={workExperience.title.concat(' Logo')}
+          loading="lazy"
           className="h-10 w-12 md:h-16 md:w-20 3xl:h-24 3xl:w-28"
         />
       </div>

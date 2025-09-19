@@ -22,7 +22,7 @@ const Pagination = ({ totalPages, currentPage, onPageChange, className }: Pagina
   return (
     <div
       className={cn(
-        'inline-flex w-max items-center gap-1 divide-x divide-white/20 rounded-full border border-white/20 bg-white/5 p-1 backdrop-blur',
+        'inline-flex w-max items-center gap-1 divide-x divide-white/20 rounded-full border border-white/20 bg-white/5 p-1',
         className,
       )}
     >

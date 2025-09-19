@@ -4,14 +4,14 @@ import Logo from './Logo';
 import NavigationLink from './NavigationLink';
 
 const Navbar = () => {
-  const onContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const onContactClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const contactSection = document.getElementById('contact');
     if (contactSection) smoothScrollTo(contactSection);
   };
 
   return (
-    <header className="padding-x absolute top-0 left-0 z-20 flex w-full items-center justify-between pt-6 pb-4 md:pt-12 md:pb-6">
+    <header className="padding-x z-10 flex w-full items-center justify-between pt-6 pb-4 md:pt-12 md:pb-6">
       <div className="flex items-center gap-x-20 xl:gap-x-40">
         <Logo />
 
@@ -26,9 +26,9 @@ const Navbar = () => {
         </nav>
       </div>
 
-      <a className="simple-button cursor-pointer" onClick={onContactClick}>
+      <button className="simple-button" onClick={onContactClick}>
         Contact Me
-      </a>
+      </button>
     </header>
   );
 };

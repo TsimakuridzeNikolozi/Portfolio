@@ -119,13 +119,6 @@ const HeroExperience = () => {
           position: [0, -4.5, 20],
           fov: 45,
         }}
-        gl={{
-          powerPreference: 'high-performance',
-          antialias: false,
-          preserveDrawingBuffer: false,
-        }}
-        dpr={Math.min(window.devicePixelRatio, 2)}
-        performance={{ min: 0.5 }}
       >
         <ambientLight intensity={0.2} color="#a259ff" />
 

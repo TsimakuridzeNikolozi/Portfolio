@@ -6,9 +6,9 @@ export enum EducationCategory {
 export type EducationType = {
   category: EducationCategory;
   school: string;
-  date: string;
   logoPath: string;
   websiteLink: string;
+  date?: string;
   degree?: string;
   certificateLink?: string;
 };

@@ -6,7 +6,7 @@ import TextType from './reusable/TextType';
 import { saveAs } from 'file-saver';
 import toast from 'react-hot-toast';
 import { useResponsive } from '../hooks/useResponsive';
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback } from 'react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,7 +17,6 @@ const phrases = [
 ];
 
 const HeroHeader = () => {
-  const shownToastRef = useRef<boolean>(null);
   const { isDesktop } = useResponsive();
 
   useGSAP(() => {
@@ -26,19 +25,6 @@ const HeroHeader = () => {
       { y: 50, opacity: 0 },
       { y: 0, opacity: 1, stagger: 0.5, duration: 1, ease: 'power2.inOut' },
     );
-
-    gsap.to('#hero-header', {
-      scale: 0.8,
-      opacity: 0,
-      duration: 1,
-      ease: 'power2.inOut',
-      scrollTrigger: {
-        trigger: '#hero',
-        start: 'top top',
-        end: '+=500',
-        scrub: true,
-      },
-    });
   });
 
   const downloadResumeClick = useCallback(() => {
@@ -49,15 +35,6 @@ const HeroHeader = () => {
       // eslint-disable-next-line no-console
       console.error(error);
       toast.error('Failed to download resume, please try again.');
-    }
-  }, [isDesktop]);
-
-  useEffect(() => {
-    if (!isDesktop && !shownToastRef.current) {
-      shownToastRef.current = true;
-      toast.error('Please use a desktop device for the best experience', {
-        icon: 'ⓘ',
-      });
     }
   }, [isDesktop]);
 

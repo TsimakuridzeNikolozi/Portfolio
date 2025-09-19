@@ -40,7 +40,7 @@ const SkillCard = memo(
             </svg>
 
             <div className="skill-icon-container">
-              <img src={skill.icon} alt={skill.name} className="skill-icon" />
+              <img src={skill.icon} alt={skill.name} loading="lazy" className="skill-icon" />
             </div>
           </div>
         </div>
