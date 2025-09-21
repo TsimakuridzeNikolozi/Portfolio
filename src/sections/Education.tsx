@@ -39,7 +39,7 @@ const Education = () => {
     const timelineTrigger = ScrollTrigger.create({
       id: 'timelineTrigger',
       trigger: '.timeline',
-      start: 'top+=40% bottom',
+      start: 'top+=60% bottom',
       end: 'bottom+=20% bottom',
       onUpdate: (self) => {
         // Timeline scale animation
