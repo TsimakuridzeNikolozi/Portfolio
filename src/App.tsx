@@ -11,10 +11,14 @@ import Contact from './sections/Contact';
 import Education from './sections/Education';
 import Skills from './sections/Skills';
 import WorkExperience from './sections/WorkExperience';
+import { useEffect } from 'react';
 
 const App = () => {
   useHeaderAnimation();
   useResize();
+  useEffect(() => {
+    window.dispatchEvent(new CustomEvent('app:ready'));
+  }, []);
 
   return (
     <div className="page">

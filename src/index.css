@@ -12,20 +12,6 @@ body {
   padding: 0;
 }
 
-.background-image {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  width: 100vw;
-  height: 100vh;
-  background-image: url('/images/background.svg');
-  background-size: cover;
-  background-position: left;
-  will-change: transform;
-  opacity: 0.12;
-}
-
 @media (min-width: 2400px) {
   section {
     min-height: 65dvh;
