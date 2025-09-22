@@ -1,7 +1,11 @@
 export const hidePreloader = () => {
   const preloader = document.getElementById('preloader');
   if (!preloader) return;
-  preloader.classList.add('preloader--hide');
+
+  setTimeout(() => {
+    preloader.classList.add('preloader--hide');
+  }, 350);
+
   preloader.addEventListener(
     'transitionend',
     () => {
