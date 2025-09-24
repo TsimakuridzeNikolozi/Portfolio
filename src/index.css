@@ -125,7 +125,7 @@ body {
   }
 
   .input-label {
-    @apply text-xs font-medium tracking-wide text-white/80 uppercase md:text-sm 3xl:text-lg;
+    @apply w-fit text-xs font-medium tracking-wide text-white/80 uppercase md:text-sm 3xl:text-lg;
   }
 
   .input {
