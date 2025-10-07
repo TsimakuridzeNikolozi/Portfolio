@@ -12,7 +12,7 @@ export const WORK_EXPERIENCE: WorkExperienceType[] = [
       'Architected and implemented complex referral-based systems that successfully scaled to over 200,000 active users',
       'Managed and mentored engineers through task delegation, code reviews, and technical guidance, fostering a high-performing development team.',
       'Built core functionalities for a non-custodial Web3 Wallet, focusing on secure storage, performance optimization, and maintainable architecture.',
-      'Delivered end-to-end Web3 features from Solidity smart contracts to React-based user interfaces',
+      'Integrated multiple third-party Web3 projects, bringing new features and improving functionality.',
     ],
     url: 'https://hinkal.pro/',
   },
