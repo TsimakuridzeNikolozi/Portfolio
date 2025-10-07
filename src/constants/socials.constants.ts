@@ -1,7 +1,7 @@
 export const SOCIALS = [
   {
     name: 'linkedin',
-    link: 'https://www.linkedin.com/in/ntsima/',
+    link: 'https://www.linkedin.com/in/nikolozitsimakuridze/',
     icon: '/images/social/linkedin.svg',
   },
   {
